@@ -9,7 +9,7 @@ const Login = (props) => {
     AuthContext
   );
   const email = useFormInput("testx2@test.com", "Email");
-  const password = useFormInput("123456", "Email");
+  const password = useFormInput("123456", "Password");
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(email.value);

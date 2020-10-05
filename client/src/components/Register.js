@@ -21,6 +21,7 @@ const Register = (props) => {
         {
           email: email.value,
           password: password.value,
+          // firstName: firstName.value,
         },
         history
       );
@@ -46,6 +47,12 @@ const Register = (props) => {
       <form onSubmit={handleSubmit}>
         <p>{email.label}</p>
         <input autoFocus {...email} />
+        {/* <p>{firstName.label} </p>
+        <input type="string" />
+        <p>{lastName.label}</p>
+        <input type="string" />
+        <p>{cohort.label}</p>
+        <input type="string" /> */}
         <p>{password.label}</p>
         <input type="password" {...password} />
         <p>{passwordConfirmation.label}</p>
