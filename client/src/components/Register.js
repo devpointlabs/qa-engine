@@ -5,6 +5,10 @@ import { AuthContext } from "../providers/AuthProvider";
 const Register = (props) => {
   const email = useFormInput("testx@test.com", "Email");
   const password = useFormInput("123456", "Password");
+  const firstName = useFormInput("","First Name")
+  const lastName = useFormInput("", "Last Name")
+  const cohort = useFormInput("", "Cohort")
+
   const passwordConfirmation = useFormInput("123456", "password Confirmation");
   const { handleRegister, authLoading, authErrors } = useContext(AuthContext);
   const history = useHistory();
@@ -21,7 +25,9 @@ const Register = (props) => {
         {
           email: email.value,
           password: password.value,
-          // firstName: firstName.value,
+          first_name: firstName.value,
+          last_name: lastName.value,
+          cohort: cohort.value,
         },
         history
       );
@@ -47,12 +53,12 @@ const Register = (props) => {
       <form onSubmit={handleSubmit}>
         <p>{email.label}</p>
         <input autoFocus {...email} />
-        {/* <p>{firstName.label} </p>
-        <input type="string" />
+        <p>{firstName.label}</p>
+        <input autoFocus {...firstName} />
         <p>{lastName.label}</p>
-        <input type="string" />
+        <input autoFocus {...lastName} />
         <p>{cohort.label}</p>
-        <input type="string" /> */}
+        <input autoFocus {...cohort} />
         <p>{password.label}</p>
         <input type="password" {...password} />
         <p>{passwordConfirmation.label}</p>
