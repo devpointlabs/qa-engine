@@ -11,7 +11,8 @@
 6. `rails s -p 3001`
 
 7. `cd client && yarn`
-8. `yarn start`
+8. run `yarn add axios`
+9. `yarn start`
 
 ### handle git
 
