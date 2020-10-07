@@ -53,12 +53,14 @@ const Register = (props) => {
       <form onSubmit={handleSubmit}>
         <p>{email.label}</p>
         <input autoFocus {...email} />
+        <br />
+        <br />
         <p>{firstName.label}</p>
-        <input autoFocus {...firstName} />
+        <input  {...firstName} />
         <p>{lastName.label}</p>
-        <input autoFocus {...lastName} />
+        <input  {...lastName} />
         <p>{cohort.label}</p>
-        <input autoFocus {...cohort} />
+        <input  {...cohort} />
         <p>{password.label}</p>
         <input type="password" {...password} />
         <p>{passwordConfirmation.label}</p>
