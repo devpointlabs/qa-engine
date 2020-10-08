@@ -17,15 +17,8 @@ class Api::AnswersController < ApplicationController
   def create
     answer = current_user.answers.new(answer_params)
     # answer = Answer.new(answer_params)
-
-    if answer.save
-      render json: answer
-    else
-      render json: answer.errors, status: 422
-    end
+  def update #TODO make sure update isn't broken
   end
-s
-  def update
 
     # A user should not be able to edit their answer once it has been selected as the correct answer for a question
     

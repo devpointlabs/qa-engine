@@ -3,10 +3,11 @@ class Api::CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   
   def index
-    render json: Comment.all
+    render json: current_user.comments.all
   end
 
   def show
+    render json: @comment
   end
 
   def new
@@ -14,8 +15,8 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    # @comment = current_user.comments.new(comment_params)
-    comment = Comment.new(comment_params)
+    comment = current_user.comments.new(comment_params)
+  
     if comment.save
       render json: comment
     else

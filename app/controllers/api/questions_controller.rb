@@ -16,9 +16,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(question_params)
-    question1 = current_user.questions.new(question_params)
-
+    question = current_user.questions.new(question_params)
     if question.save
       render json: question
     else
