@@ -39,8 +39,10 @@ const NavBar = () => {
     <div style={styles.navbar}>
       <div>
         <Link to="/">Home</Link>
+        {/* <span style={{ marginRight: "10px" }}></span>
+        {user && <Link to="/thingsDemo">Things</Link>} */}
         <span style={{ marginRight: "10px" }}></span>
-        {user && <Link to="/thingsDemo">Things</Link>}
+      {user && <Link to="/questionsDemo">Questions</Link>}
       </div>
       <div>{getRightNav()}</div>
     </div>
@@ -51,7 +53,7 @@ const styles = {
   navbar: {
     width: "100%",
     background: "black",
-    padding: "10px",
+    padding: "20px",
     display: "flex",
     justifyContent: "space-between",
   },

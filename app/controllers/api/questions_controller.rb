@@ -3,8 +3,8 @@ class Api::QuestionsController < ApplicationController
   before_action :set_question, only: [ :show, :update, :destroy ]
 
   def index
-    render json: Question.all
-    # render json: current_user.questions.all
+    # render json: User.questions.all
+    render json: current_user.questions.all
   end
 
   def show
@@ -17,6 +17,7 @@ class Api::QuestionsController < ApplicationController
 
   def create
     question = Question.new(question_params)
+    question1 = current_user.questions.new(question_params)
 
     if question.save
       render json: question

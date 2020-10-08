@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+
 import { useFormInput } from "../customHooks/useFormInput";
 import { AuthContext } from "../providers/AuthProvider";
 const Login = (props) => {
