@@ -8,6 +8,9 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import FetchUser from "./components/FetchUser";
 import ProtecedRoute from "./components/ProtectedRoute";
+import QuestionsDemo from "./components/QuestionsDemo";
+// import Login from "./components/Login";
+// import User from "./components/User";
 
 // anything in fetchuser will be hidden while that checkuser function is running
 
@@ -23,6 +26,8 @@ function App() {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <ProtecedRoute exact path="/thingsDemo" component={ThingsDemo} />
+            <ProtecedRoute exact path="/questionsDemo" component={QuestionsDemo} />
+            {/* <ProtecedRoute exact path="/user" component={User} /> */}
           </Switch>
         </FetchUser>
       </Container>
