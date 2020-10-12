@@ -6,10 +6,10 @@ Thing.destroy_all
 end
 
 
-Question.destroy_all
-5.times do 
-  title = Faker::Educator.subject
-  body = Faker::TvShows::AquaTeenHungerForce.quote
+# Question.destroy_all
+# 5.times do 
+#   title = Faker::Educator.subject
+#   body = Faker::TvShows::AquaTeenHungerForce.quote
 
-  Question.create(title: title, body: body )
-end
+#   Question.create(title: title, body: body )
+# end
