@@ -1,6 +1,6 @@
 class Api::AnswersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_question, only: [ :show, :update, :destroy ]
+  before_action :set_answer, only: [ :show, :update, :destroy ]
 
   def index
     render json: Answer.all
