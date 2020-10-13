@@ -1,9 +1,10 @@
 class Api::AnswersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_question, only: [ :show, :update, :destroy ]
+  before_action :authenticate_user!, only: [:create, :update, :destroy ]
+  before_action :set_question
+  before_action :set_answer, only: [ :show, :update, :destroy ]
 
   def index
-    render json: Answer.all
+    render json: @question.answers.all
   end
 
   def show
@@ -34,6 +35,10 @@ class Api::AnswersController < ApplicationController
   end
 
   private
+
+  def set_question
+    @question = Question.find(params[:question_id])
+  end
 
   def set_answer
     @answer = Answer.find(params[:id])
