@@ -11,6 +11,8 @@ import ProtecedRoute from "./components/ProtectedRoute";
 import QuestionsDemo from "./components/QuestionsDemo";
 import QuestionForm from "./components/QuestionForm";
 import QuestionView from "./components/QuestionView";
+import Answer from "./components/Answer";
+import AnswerForm from "./components/AnswerForm";
 // import Login from "./components/Login";
 // import User from "./components/User";
 
