@@ -11,11 +11,7 @@ User.destroy_all
 puts "Seeding Users"
 5.times do |i|    
   user = User.new
-<<<<<<< HEAD
-  user.id = i
-=======
   # user.id = i
->>>>>>> 8fd99a9eb66ef0bee96d94a3997415b17a94af1c
   puts " User ID assigned #{user.id}"
   user.email = "test#{i}@test.com"
   user.password = '123456'
@@ -56,13 +52,8 @@ puts "Seeding Users"
   puts "Seeding Answers"
   2.times do |m|
     a = Answer.new
-<<<<<<< HEAD
-    random = rand(1.0..10000.0)
-    a.id = random
-=======
     # random = rand(1.0..10000.0)
     # a.id = random
->>>>>>> 8fd99a9eb66ef0bee96d94a3997415b17a94af1c
     a.is_correct = false
     a.upvote = rand(1..3)
     a.body = Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote
@@ -81,19 +72,11 @@ puts "Seeding Users"
       puts "Seeding Comments"
       2.times do |o|
         c = Comment.new
-<<<<<<< HEAD
-        c.id = rand(1..100000000)
-        c.body = Faker::Movies::PrincessBride.quote
-        c.upvote = rand(1..3)
-        c.user_id = rand(User.count)
-        c.answer_id = random
-=======
         # c.id = rand(1..100000000)
         c.body = Faker::Movies::PrincessBride.quote
         c.upvote = rand(1..3)
         c.user_id = user.id
         c.answer_id = a.id
->>>>>>> 8fd99a9eb66ef0bee96d94a3997415b17a94af1c
 
         c.save!
         if c.save
