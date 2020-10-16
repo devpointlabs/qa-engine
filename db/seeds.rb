@@ -11,7 +11,11 @@ User.destroy_all
 puts "Seeding Users"
 5.times do |i|    
   user = User.new
+<<<<<<< HEAD
   user.id = i
+=======
+  # user.id = i
+>>>>>>> 8fd99a9eb66ef0bee96d94a3997415b17a94af1c
   puts " User ID assigned #{user.id}"
   user.email = "test#{i}@test.com"
   user.password = '123456'
@@ -35,7 +39,7 @@ puts "Seeding Users"
     # puts "starting question seed #{k}"
     q = Question.new
     # puts "new question made"
-    q.id = k + (i*3)
+    # q.id = k + (i*3)
     puts "Question id assigned #{q.id}"
     q.title = Faker::Kpop.i_groups
     # puts "title assigned"
@@ -44,7 +48,7 @@ puts "Seeding Users"
     q.is_answered = true ##terinary to make it switch off? 
     q.upvote = k
     # puts "#{q.body}"
-    q.user_id = i
+    q.user_id = user.id
     q.save!
 
   
@@ -52,15 +56,20 @@ puts "Seeding Users"
   puts "Seeding Answers"
   2.times do |m|
     a = Answer.new
+<<<<<<< HEAD
     random = rand(1.0..10000.0)
     a.id = random
+=======
+    # random = rand(1.0..10000.0)
+    # a.id = random
+>>>>>>> 8fd99a9eb66ef0bee96d94a3997415b17a94af1c
     a.is_correct = false
     a.upvote = rand(1..3)
     a.body = Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote
     # puts a.body
-    a.question_id = k
+    a.question_id = q.id
     puts "question id: #{a.question_id}"
-    a.user_id = rand(User.count)
+    a.user_id = user.id
     puts "user id: #{a.user_id}"
 
     a.save!
@@ -72,11 +81,19 @@ puts "Seeding Users"
       puts "Seeding Comments"
       2.times do |o|
         c = Comment.new
+<<<<<<< HEAD
         c.id = rand(1..100000000)
         c.body = Faker::Movies::PrincessBride.quote
         c.upvote = rand(1..3)
         c.user_id = rand(User.count)
         c.answer_id = random
+=======
+        # c.id = rand(1..100000000)
+        c.body = Faker::Movies::PrincessBride.quote
+        c.upvote = rand(1..3)
+        c.user_id = user.id
+        c.answer_id = a.id
+>>>>>>> 8fd99a9eb66ef0bee96d94a3997415b17a94af1c
 
         c.save!
         if c.save
@@ -93,6 +110,5 @@ puts "***********************"
 
   puts "***********************"
   puts "***********************"
-    
 
 end
