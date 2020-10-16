@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import Axios from "axios";
 import AnswerForm from "./AnswerForm";
-import { Card, CardHeader } from "semantic-ui-react";
+import { Card, CardHeader, Button } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
+import Answer from "./Answer";
+import Comment from "./Comment";
 
 
 
 const Question = (props) => {
+  const { user } = useContext(AuthContext);
   const [question, setQuestion] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [comments, setComments] = useState([]);
-  const { user } = useContext(AuthContext);
+  const [show, setShow] = useState(false);
 
 
   console.log("Here's the passed down prop", props.match.params.id);
@@ -27,19 +30,6 @@ const Question = (props) => {
         alert("error in retrieving questions");
       });
 
-    // const getAnswers = async () => {
-    //   try {
-    //     let response = await Axios.get(`/api/questions/${props.match.params.id}/answers`);
-    //     console.log("successfully retrieved answers");
-    //     setAnswers(response.data);
-    //   } catch(err) {
-    //     console.log("There was a problem getting answers related to this question");
-    //     alert("You done effed up A-Aron.");
-    //   }
-    // };
-
-
-
       Axios
         .get(`/api/questions/${props.match.params.id}/answers`)
         .then((response) => {
@@ -50,11 +40,19 @@ const Question = (props) => {
           alert("error in retrieving answers for this question");
       });
 
-
-
-
-
   }, []);
+
+    // const getComments = (answer) = {
+    //     Axios
+    //     .get(`/api/questions/${question.id}/answers/${answer}/comments`)
+    //     .then((res) => {
+    //       setComments(res.data);
+    //       console.log("got Comments");
+    //     })
+    //     .catch((err) => {
+    //       alert("error retrieving comments");
+    //     })
+    // };
 
     const addAnswer = (answer) => {
        Axios
@@ -69,7 +67,13 @@ const Question = (props) => {
     
     }
 
+    // const onAnswerClick = (answer) => {
+    //   getComments(answer);
+      
+    // }
 
+
+    
     return (
       <div>
         <h1>Question:</h1>
@@ -79,16 +83,21 @@ const Question = (props) => {
         <br />
         <br />
         {answers.map((a) => (
-        <p>{a.body}</p>
-          // <Card key={a.id}>
-          //   <CardHeader>{a.body}</CardHeader>
-          // </Card>
+
+        <Answer {...a} />
+          // {show && <Comments questionID={question.id} answerID={a.id} />}
+        //<Button onClick={() => setShow(!show)}>{show ? "Hide Comments" : "Comments"}</Button>
+
         ))}
         <h2></h2>
         <AnswerForm addAnswer={addAnswer} questionID={question.id} user={user}/>
+        
       </div>
     )
 
 }
 
 export default Question;
+
+
+//onClick={onAnswerClick(a.id)} 
