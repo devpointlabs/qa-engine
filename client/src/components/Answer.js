@@ -1,40 +1,39 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import AnswerForm from "./AnswerForm";
+import Comment from "./Comment";
 
 
 const Answer = (props) => {
-  const [answers, setAnswers] = useState([])
-  
-  console.log("Here are the props passed down", props.match.params.id)
+  const [comments, setComments] = useState([]);
+  const [ show, setShow ] = useState(false); 
 
-  useEffect(() => {
+  const addComment = (comment) => {
+    setComments(...comments, comment);
+  };
 
-    console.log("useEffect triggered");
-    Axios
-      .get(`/api/questions/${props.match.params.id}/answers`)
-      .then((response) => {
-        setAnswers(response.data);
-      })
-      .catch((error) => {
-        alert("error retrieving answers");
-      });
-  });
+  const renderAnswers = () => {
+    return(
+      <div>
+        <br />
+        <h4 onClick={() => setShow(!show)}>{props.body}</h4>
+        {show && <Comment answer={props.id} />}
+      </div>
+    );
+  };
+
+
 
   return (
     <div>
-      <h1>Answers:</h1>
-      <br />
-      {answers.map((a) => (
-        <p>{a.body}</p>
-      ))};
-      {/* <CommentForm></CommentForm> */}
+      {renderAnswers()}
     </div>
   )
-}
+};
+
 
 
 
 
  
-export default Answer
+export default Answer;

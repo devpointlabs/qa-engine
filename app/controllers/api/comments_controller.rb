@@ -1,9 +1,10 @@
 class Api::CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_answer, only: [:index, :show, :new, :create, :destroy]
   
   def index
-    render json: current_user.comments.all
+    render json: @answer.comments
   end
 
   def show
@@ -29,6 +30,7 @@ class Api::CommentsController < ApplicationController
       render json: @comment
     else
       render json: @comment.errors, status: 422
+    end
   end
 
   def destroy
@@ -36,6 +38,10 @@ class Api::CommentsController < ApplicationController
   end
 
   private
+
+  def set_answer
+    @answer = current_user.answers.find(params[:answer_id])
+  end
 
   def set_comment
     @comment = Comment.find(params[:id])
