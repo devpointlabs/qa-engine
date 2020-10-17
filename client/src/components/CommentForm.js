@@ -7,7 +7,7 @@ const CommentForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addComment({body: body, question_id: props.questionID, user_id: props.user.id, answer_id: props.answerID})
+    props.addComment({body: body, user_id: props.userID, answer_id: props.answerID})
   };
 
 return (
@@ -15,7 +15,7 @@ return (
   <form onSubmit={handleSubmit}>
     <input 
       label="Body"
-      placeholder="Answer question here"
+      placeholder="Enter comment here"
       type="text"
       value={body}
       onChange={(e) => setBody(e.target.value)}
