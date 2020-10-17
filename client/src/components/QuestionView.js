@@ -4,7 +4,7 @@ import AnswerForm from "./AnswerForm";
 import { Card, CardHeader, Button } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 import Answer from "./Answer";
-import Comment from "./Comment";
+import Comments from "./Comments";
 
 
 
