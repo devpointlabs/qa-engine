@@ -48,6 +48,14 @@ const QuestionsDemo = () => {
     console.log(question);
   }
 
+  const deleteQuestion = (id) => {
+    axios.delete(`/api/questions/${id}`, {params:{id:id}}).then(res => {
+      console.log(res);
+
+      setQuestions(questions.filter((question) => question.id !== id));
+    })
+  };
+
   return (
     <>
       <div>
@@ -58,6 +66,7 @@ const QuestionsDemo = () => {
            <br />
         <br />
         {questions.map((q) => (
+          <div>
             <Card key={q.id}>
               <h3><CardHeader><Link to={{
               pathname: `/questionView/${q.id}`,
@@ -65,6 +74,8 @@ const QuestionsDemo = () => {
               }}>{q.title}</Link></CardHeader></h3>
             <CardMeta>{q.body}</CardMeta>
             </Card>
+            <button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</button>
+            </div>
         ))}
       </div>
     </>
