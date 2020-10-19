@@ -10,6 +10,7 @@ import FetchUser from "./components/FetchUser";
 import ProtecedRoute from "./components/ProtectedRoute";
 import QuestionsDemo from "./components/QuestionsDemo";
 import QuestionForm from "./components/QuestionForm";
+import Editor from "./components/Editor";
 // import Login from "./components/Login";
 // import User from "./components/User";
 
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/editor" component={Editor} />
             <ProtecedRoute exact path="/thingsDemo" component={ThingsDemo} />
             <ProtecedRoute exact path="/questionsDemo" component={QuestionsDemo} />
             <ProtecedRoute exact path="/questions/new" component={QuestionForm} />
