@@ -9,6 +9,7 @@ const Answer = (props) => {
   const [comments, setComments] = useState([]);
   const [ show, setShow ] = useState(false); 
   const [ showC, setShowC ] = useState(false);
+  const [answers, setAnswers] = useState([]);
 
   const addComments = (comment) => {
     setComments(...comments, comment);
@@ -45,6 +46,7 @@ const Answer = (props) => {
         <br />
         <h4 onClick={() => { setShow(!show);
          setShowC(!showC);}}>{props.body}</h4>
+         <button variant="danger" onClick={() => props.deleteAnswer(props.aID)}>Delete Answer</button>
         {show && <Comments answerID={props.id} userID={props.user_id}/>}
         
       </div>
