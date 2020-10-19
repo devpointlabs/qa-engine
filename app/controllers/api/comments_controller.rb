@@ -1,9 +1,10 @@
 class Api::CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_answer
   
   def index
-    render json: current_user.comments.all
+    render json: @answer.comments
   end
 
   def show
@@ -15,8 +16,9 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    comment = current_user.comments.new(comment_params)
-  
+      # binding.pry
+      # comment = Comment.new(user_id: current_user.id, answer_id: @answer.id, body: params[:comment][:body])
+    comment =  @answer.comments.new(comment_params)
     if comment.save
       render json: comment
     else
@@ -29,6 +31,7 @@ class Api::CommentsController < ApplicationController
       render json: @comment
     else
       render json: @comment.errors, status: 422
+    end
   end
 
   def destroy
@@ -37,11 +40,15 @@ class Api::CommentsController < ApplicationController
 
   private
 
+  def set_answer
+    @answer = current_user.answers.find(params[:answer_id])
+  end
+
   def set_comment
     @comment = Comment.find(params[:id])
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :upvote)
+    params.require(:comment).permit(:body, :user_id, :answer_id, :upvote)
   end
 end

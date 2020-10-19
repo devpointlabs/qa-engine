@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import QuestionForm from "./QuestionForm";
+import { Link } from "react-router-dom";
+import { Card, CardDescription, CardHeader, CardMeta } from 'semantic-ui-react';
 {}
 const QuestionsDemo = () => {
   const [questions, setQuestions] = useState([]);
-  const [answers, setAnswers] = useState([]);
+  // const [answers, setAnswers] = useState([]);
+
+  const handleClick = (e) => {
+    // setQuestions({ [e.target.value]})
+  }
 
   // [] as second arg for componentdidmount
   // ()=>{} this is a unnamed function in this example it is a callback
@@ -37,19 +43,28 @@ const QuestionsDemo = () => {
     //   });
 
   }, []);
+
+  const addQuestion = (question) => {
+    console.log(question);
+  }
+
   return (
     <>
       <div>
         <br />
         <br />
         <br />
-        <QuestionForm ></QuestionForm>
-     
+        <QuestionForm add={addQuestion}/>
+           <br />
+        <br />
         {questions.map((q) => (
-          // array.forEach(element => {
-            
-          // });
-          <h1 key={q.id}>{q.title} {q.body}</h1>
+            <Card key={q.id}>
+              <h3><CardHeader><Link to={{
+              pathname: `/questionView/${q.id}`,
+              idProps: { question: {...q}}
+              }}>{q.title}</Link></CardHeader></h3>
+            <CardMeta>{q.body}</CardMeta>
+            </Card>
         ))}
       </div>
     </>
@@ -57,3 +72,7 @@ const QuestionsDemo = () => {
 };
 
 export default QuestionsDemo;
+
+          // array.forEach(element => {
+            
+          // });

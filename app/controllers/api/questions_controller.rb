@@ -7,6 +7,11 @@ class Api::QuestionsController < ApplicationController
     render json: current_user.questions.all
   end
 
+  # !== all the questions that belong to this user
+  def all_questions
+    render json: Question.all
+  end
+
   def show
     render json: @question
   end

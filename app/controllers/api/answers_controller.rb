@@ -1,9 +1,10 @@
 class Api::AnswersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_question, only: [ :show, :update, :destroy ]
+  before_action :authenticate_user!, only: [:create, :update, :destroy ]
+  before_action :set_question
+  before_action :set_answer, only: [ :show, :update, :destroy ]
 
   def index
-    render json: Answer.all
+    render json: @question.answers.all
   end
 
   def show
@@ -15,19 +16,23 @@ class Api::AnswersController < ApplicationController
   end
 
   def create
-    answer = current_user.answers.new(answer_params)
+    @answer = current_user.answers.new(answer_params)
     # answer = Answer.new(answer_params)
-  def update #TODO make sure update isn't broken
-  end
-
     # A user should not be able to edit their answer once it has been selected as the correct answer for a question
-    
-    if @answer.update(answer_params)
+      # binding.pry
+    if @answer.save
       render json: @answer
     else
       render json: @answer.errors, status: 422
     end
   end
+
+  # def update 
+  #     if @answer.update(answer_params)
+  #       render json: @answer
+  #     else 
+  #       render json: @answer.errors status: 422   #TODO make sure update isn't broken
+  # end
 
   def destroy
     @answer.destroy
@@ -35,12 +40,16 @@ class Api::AnswersController < ApplicationController
 
   private
 
+  def set_question
+    @question = current_user.questions.find(params[:question_id])
+  end
+
   def set_answer
     @answer = Answer.find(params[:id])
   end
 
   def answer_params
-    params.require(:answer).permit(:body, :is_correct, :upvote)
+    params.require(:answer).permit(:question_id, :user_id, :body, :is_correct, :upvote)
   end
 
 end
