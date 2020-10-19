@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :answers do
       resources :comments
     end
+    get 'all_questions', to: 'questions#all_questions'
   end
 end
 

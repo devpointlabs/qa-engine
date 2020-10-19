@@ -25,6 +25,7 @@ const Comments = (props) => {
       alert("No comment posted")
     });
   }
+  
 
   useEffect(() => {
     getComments();
@@ -48,7 +49,7 @@ const Comments = (props) => {
     ));
   };
 
-  
+
 
 
 
