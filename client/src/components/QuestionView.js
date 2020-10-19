@@ -42,6 +42,8 @@ const Question = (props) => {
 
   }, []);
 
+
+
     // const getComments = (answer) = {
     //     Axios
     //     .get(`/api/questions/${question.id}/answers/${answer}/comments`)
@@ -67,6 +69,11 @@ const Question = (props) => {
     
     }
 
+
+    // const updateAnswer = (answer) => {
+
+    // }
+
     const deleteAnswer = (id) => {
       Axios.delete(`/api/questions/${question.id}/answers/${id}`, {params:{id:id}}).then(res => {
         console.log(res);
@@ -74,6 +81,7 @@ const Question = (props) => {
         setAnswers(answers.filter((answer) => answer.id !== id));
       })
     };
+
 
     // const onAnswerClick = (answer) => {
     //   getComments(answer);
@@ -99,12 +107,9 @@ const Question = (props) => {
        
         ))}
         <h2></h2>
-        
-        <AnswerForm addAnswer={addAnswer} questionID={question.id} user={user}/>
-       
+        <AnswerForm addAnswer={addAnswer} updateAnswer={updateAnswer} questionID={question.id} user={user}/>
       </div>
     )
-
 }
 
 export default Question;
