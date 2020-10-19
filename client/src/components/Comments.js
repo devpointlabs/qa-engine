@@ -25,6 +25,7 @@ const Comments = (props) => {
       alert("No comment posted")
     });
   }
+  
 
   useEffect(() => {
     getComments();
@@ -32,12 +33,12 @@ const Comments = (props) => {
 
   const renderComments = () => {
     return comments.map((com) => (
-      <p>{com.body}</p>
+      <p key={com.id}>{com.body}</p>
     ));
   };
 
-  // const deleteComment = () => {
-  //   Axios.delete(`api/answers/${answer}/comments/${id}`)
+  // const deleteComment = (comment) => {
+  //   Axios.delete(`api/answers/${props.answerID}/comments/${id}`)
   // }
 
 
