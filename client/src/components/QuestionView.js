@@ -42,6 +42,8 @@ const Question = (props) => {
 
   }, []);
 
+
+
     // const getComments = (answer) = {
     //     Axios
     //     .get(`/api/questions/${question.id}/answers/${answer}/comments`)
@@ -67,6 +69,15 @@ const Question = (props) => {
     
     }
 
+    // const updateAnswer = (answer) => {
+
+    // }
+
+    // const deleteAnswer = (answer) => {
+    //   Axios
+    //   .delete(`/api/questions/${answer.id}`)
+    // }
+
     // const onAnswerClick = (answer) => {
     //   getComments(answer);
       
@@ -90,7 +101,7 @@ const Question = (props) => {
 
         ))}
         <h2></h2>
-        <AnswerForm addAnswer={addAnswer} questionID={question.id} user={user}/>
+        <AnswerForm addAnswer={addAnswer} updateAnswer={updateAnswer} questionID={question.id} user={user}/>
         
       </div>
     )
