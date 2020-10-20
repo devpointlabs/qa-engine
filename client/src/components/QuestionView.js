@@ -107,7 +107,7 @@ const Question = (props) => {
        
         ))}
         <h2></h2>
-        <AnswerForm addAnswer={addAnswer} updateAnswer={updateAnswer} questionID={question.id} user={user}/>
+        <AnswerForm addAnswer={addAnswer}  questionID={question.id} user={user}/>
       </div>
     )
 }

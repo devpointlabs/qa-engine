@@ -45,8 +45,16 @@ const QuestionsDemo = () => {
   }, []);
 
   const addQuestion = (question) => {
-    console.log(question);
-  }
+    axios
+      .post(`/api/questions`, question)
+      .then((res) => {
+        setQuestions([...questions, res.data]);
+        // history.push(res.data)
+      })
+      .catch((err) =>{
+        alert("Something went wrong");
+    });
+  };
 
   const deleteQuestion = (id) => {
     axios.delete(`/api/questions/${id}`, {params:{id:id}}).then(res => {
@@ -62,7 +70,7 @@ const QuestionsDemo = () => {
         <br />
         <br />
         <br />
-        <QuestionForm add={addQuestion}/>
+        <QuestionForm addQuestion={addQuestion} />
            <br />
         <br />
         {questions.map((q) => (
