@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CommentForm from './CommentForm';
-import Axios from "axios"
+import Axios from "axios";
 
 
 const Comments = (props) => {
@@ -25,20 +25,30 @@ const Comments = (props) => {
       alert("No comment posted")
     });
   }
+  
 
   useEffect(() => {
     getComments();
   }, []);
 
+  const deleteComment = (id) => {
+    Axios.delete(`/api/answers/${props.answerID}/comments/${id}`, {params:{id:id}}).then(res => {
+      console.log(res);
+
+      setComments(comments.filter((comment) => comment.id !== id));
+    })
+  };
+
   const renderComments = () => {
     return comments.map((com) => (
-      <p>{com.body}</p>
+      <div key={com.id}>
+        <p>{com.body}</p>
+        <button variant="danger" onClick={() => deleteComment(com.id)}>Delete Comment</button>
+      </div>
+      
     ));
   };
 
-  // const deleteComment = () => {
-  //   Axios.delete(`api/answers/${answer}/comments/${id}`)
-  // }
 
 
 
@@ -48,6 +58,7 @@ const Comments = (props) => {
       <p>Comments:</p>
       <p>{renderComments()}</p>
       <CommentForm answerID={props.answerID} addComment={addComment} userID={props.userID} />
+      
     </div>
   )
 

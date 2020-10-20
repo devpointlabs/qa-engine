@@ -4,6 +4,7 @@ import axios from 'axios';
 import ReactQuill, {Quill, Toolbar} from 'react-quill';
 // import {AuthConsumer} from '../providers/AuthProvider';
 
+<<<<<<< HEAD
 // let Inline = Quill.import('blots/inline');
 // class BoldBlot extends Inline { }
 // BoldBlot.blotName = 'bold';
@@ -12,19 +13,24 @@ import ReactQuill, {Quill, Toolbar} from 'react-quill';
 // const formats = ["bold", "code-block"]
 
 const QuestionForm = ({history}) => {
+=======
+const QuestionForm = (props) => {
+>>>>>>> 8184bd1ff0a3297d4606e37f9ebe9dd8603d3843
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    axios
-      .post("/api/questions", {title, body})
-      .then((res) => {
-        history.push("/questions");
-      })
-      .catch((err) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.addQuestion({body: body, title:title})
+    // axios
+    //   .post("/api/questions", {title, body})
+    //   .then((res) => {
+    //     history.push("/questions");
+    //   })
+    //   .catch((err) => {
       
+<<<<<<< HEAD
         console.log("Error problem posting");
         alert("Error saving question");
       });
@@ -36,6 +42,12 @@ const QuestionForm = ({history}) => {
 
 
 
+=======
+    //     console.log("Error problem posting");
+    //     alert("Error saving question");
+    //   });
+  };
+>>>>>>> 8184bd1ff0a3297d4606e37f9ebe9dd8603d3843
   return (
 
     <>

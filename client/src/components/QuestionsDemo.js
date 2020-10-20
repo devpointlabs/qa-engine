@@ -45,8 +45,24 @@ const QuestionsDemo = () => {
   }, []);
 
   const addQuestion = (question) => {
-    console.log(question);
-  }
+    axios
+      .post(`/api/questions`, question)
+      .then((res) => {
+        setQuestions([...questions, res.data]);
+        // history.push(res.data)
+      })
+      .catch((err) =>{
+        alert("Something went wrong");
+    });
+  };
+
+  const deleteQuestion = (id) => {
+    axios.delete(`/api/questions/${id}`, {params:{id:id}}).then(res => {
+      console.log(res);
+
+      setQuestions(questions.filter((question) => question.id !== id));
+    })
+  };
 
   return (
     <>
@@ -54,10 +70,11 @@ const QuestionsDemo = () => {
         <br />
         <br />
         <br />
-        <QuestionForm add={addQuestion}/>
+        <QuestionForm addQuestion={addQuestion} />
            <br />
         <br />
         {questions.map((q) => (
+          <div>
             <Card key={q.id}>
               <h3><CardHeader><Link to={{
               pathname: `/questionView/${q.id}`,
@@ -65,6 +82,8 @@ const QuestionsDemo = () => {
               }}>{q.title}</Link></CardHeader></h3>
             <CardMeta dangerouslySetInnerHTML={{__html: q.body}}></CardMeta>
             </Card>
+            <button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</button>
+            </div>
         ))}
       </div>
     </>

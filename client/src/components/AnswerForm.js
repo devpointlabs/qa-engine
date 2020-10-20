@@ -24,7 +24,7 @@ return (
   <form onSubmit={handleSubmit}>
     <input 
       label="Body"
-      placeholder="Answer question here"
+      placeholder="Enter Answer Here"
       type="text"
       value={body}
       onChange={(e) => setBody(e.target.value)}
