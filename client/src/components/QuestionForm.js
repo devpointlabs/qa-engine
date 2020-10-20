@@ -17,7 +17,6 @@ const QuestionForm = ({history}) => {
   
 
   function handleSubmit(e) {
-    debugger
     e.preventDefault()
     axios
       .post("/api/questions", {title, body})

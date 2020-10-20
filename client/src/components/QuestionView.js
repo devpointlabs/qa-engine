@@ -4,7 +4,6 @@ import AnswerForm from "./AnswerForm";
 import { Card, CardHeader, Button } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 import Answer from "./Answer";
-import QuestionForm from './QuestionForm';
 import Comments from "./Comments";
 
 
@@ -80,9 +79,7 @@ const Question = (props) => {
         <h1>Question:</h1>
         <h2>{question.title}</h2>
         <br />
-        <p formats={QuestionForm.formats}
-      modules={QuestionForm.modules}
-      dangerouslySetInnerHTML={{__html: question.body}}></p>
+        <p dangerouslySetInnerHTML={{__html: question.body}}></p>
         <br />
         <br />
         {answers.map((a) => (
@@ -103,24 +100,6 @@ const Question = (props) => {
 export default Question;
 
 
-QuestionForm.modules = {
-  toolbar: [
-    [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
-    [{size: []}],
-    ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code', 'code-block'],
-    [{'list': 'ordered'}, {'list': 'bullet'}, 
-     {'indent': '-1'}, {'indent': '+1'}],
-    ['link'],
-  
-  ],
-}
-
-QuestionForm.formats = [
-  'header', 'font', 'size',
-  'bold', 'italic', 'underline', 'strike', 'blockquote', 'code', 'code-block',
-  'list', 'bullet', 'indent',
-  'link'
-]
 
 
 //onClick={onAnswerClick(a.id)} 

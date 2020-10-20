@@ -22,8 +22,6 @@ const AnswerForm = (props) => {
 return (
 <>
   <form onSubmit={handleSubmit}>
-    <Editor>
-
     <input 
       label="Body"
       placeholder="Answer question here"
@@ -32,7 +30,6 @@ return (
       onChange={(e) => setBody(e.target.value)}
       required  
       />
-      </Editor>
     <button>Submit</button>
   </form>
 </>
