@@ -39,7 +39,7 @@ const Answer = (props) => {
   //   // });
   // }
   
-  const isUserMatching = () => {
+    const isUserMatching = () => {
     if (props.user.id === props.user_id ){
      return <button variant="danger" onClick={() => props.deleteAnswer(props.aID)}>Delete Answer</button>;
     }

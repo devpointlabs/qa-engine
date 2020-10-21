@@ -8,7 +8,6 @@ import { AuthContext } from "../providers/AuthProvider";
 const AllQuestions = () => {
   const { user } = useContext(AuthContext);
   const [ questions, setQuestions ] = useState([]);
-  // const { user } = useContext(AuthContext);
 
   useEffect(() => {
 

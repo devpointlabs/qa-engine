@@ -1,7 +1,6 @@
 class Api::AnswersController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update, :destroy ]
   before_action :set_question
-  # before_action :get_question, only: [:all_answers]
   before_action :set_answer, only: [ :show, :update, :destroy ]
 
   def index
@@ -11,6 +10,7 @@ class Api::AnswersController < ApplicationController
   def all_answers
     render json: @qAnswer.answers.all
   end
+
 
   def show
     render json: @answer
@@ -46,12 +46,7 @@ class Api::AnswersController < ApplicationController
   private
 
   def set_question
-    # @question = current_user.questions.find(params[:question_id])
     @question = Question.find(params[:question_id])
-  end
-
-   def get_question
-    @qAnswer = Question.answers.find(params[:question_id])
   end
 
   def set_answer

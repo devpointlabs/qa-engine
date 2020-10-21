@@ -41,7 +41,6 @@ class Api::CommentsController < ApplicationController
   private
 
   def set_answer
-    # @answer = current_user.answers.find(params[:answer_id])
     @answer = Answer.find(params[:answer_id])
   end
 

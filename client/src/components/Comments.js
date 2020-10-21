@@ -10,8 +10,6 @@ const Comments = (props) => {
   const { user } = useContext(AuthContext);
   const [comments, setComments] = useState([]);
   
-  
-  
   const getComments = async () => {
     try {
       let response = await Axios.get(`/api/answers/${props.answerID}/comments`)
@@ -45,17 +43,19 @@ const Comments = (props) => {
     })
   };
 
-  const isUserMatching = (id) => {
-    if (props.authUser.id === id){
-     return <button variant="danger" onClick={() => props.deleteComment(props.comments.id)}>Delete Comment</button>;
+
+  const isUserMatching = (userId, comId) => {
+    if (props.authUser.id === userId){
+     return <button variant="danger" onClick={() => deleteComment(comId)}>Delete Comment</button>;
     }
   }
+
 
   const renderComments = () => {
     return comments.map((com) => (
       <div key={com.id}>
         <Comment {...com}>{com.body}</Comment>
-        {isUserMatching(com.user_id)}
+        {isUserMatching(com.user_id, com.id)}
       </div>
       
     ));
