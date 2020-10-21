@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import CommentForm from './CommentForm';
 import Axios from "axios";
+import Comment from './Comment';
+import { AuthContext } from "../providers/AuthProvider";
+
 
 
 const Comments = (props) => {
+  const { user } = useContext(AuthContext);
   const [comments, setComments] = useState([]);
+  
+  
   
   const getComments = async () => {
     try {
@@ -39,11 +45,17 @@ const Comments = (props) => {
     })
   };
 
+  const isUserMatching = (id) => {
+    if (props.authUser.id === id){
+     return <button variant="danger" onClick={() => props.deleteComment(props.comments.id)}>Delete Comment</button>;
+    }
+  }
+
   const renderComments = () => {
     return comments.map((com) => (
       <div key={com.id}>
-        <p>{com.body}</p>
-        <button variant="danger" onClick={() => deleteComment(com.id)}>Delete Comment</button>
+        <Comment {...com}>{com.body}</Comment>
+        {isUserMatching(com.user_id)}
       </div>
       
     ));
@@ -57,7 +69,7 @@ const Comments = (props) => {
     <div>
       <p>Comments:</p>
       <p>{renderComments()}</p>
-      <CommentForm answerID={props.answerID} addComment={addComment} userID={props.userID} />
+      <CommentForm answerID={props.answerID} addComment={addComment} user={user} />
       
     </div>
   )

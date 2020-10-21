@@ -3,9 +3,11 @@ import axios from "axios";
 import QuestionForm from "./QuestionForm";
 import { Link } from "react-router-dom";
 import { Card, CardDescription, CardHeader, CardMeta } from 'semantic-ui-react';
-{}
-const QuestionsDemo = () => {
+import { AuthContext } from "../providers/AuthProvider";
+
+const MyQuestions = (props) => {
   const [questions, setQuestions] = useState([]);
+  
   // const [answers, setAnswers] = useState([]);
 
   const handleClick = (e) => {
@@ -64,6 +66,7 @@ const QuestionsDemo = () => {
     })
   };
 
+
   return (
     <>
       <div>
@@ -82,7 +85,7 @@ const QuestionsDemo = () => {
               }}>{q.title}</Link></CardHeader></h3>
             <CardMeta>{q.body}</CardMeta>
             </Card>
-            <button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</button>
+            <button variant="danger" onClick={() => deleteQuestion(questions.id)}>Delete Question</button>
             </div>
         ))}
       </div>
@@ -90,7 +93,7 @@ const QuestionsDemo = () => {
   );
 };
 
-export default QuestionsDemo;
+export default MyQuestions;
 
           // array.forEach(element => {
             

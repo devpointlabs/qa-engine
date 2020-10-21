@@ -7,7 +7,7 @@ const CommentForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addComment({body: body, user_id: props.userID, answer_id: props.answerID})
+    props.addComment({body: body, user_id: props.user.id, answer_id: props.answerID})
   };
 
 return (
