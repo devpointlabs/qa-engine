@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import AnswerForm from "./AnswerForm";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
-import { AuthContext } from "../providers/AuthProvider";
 
 
 const Answer = (props) => {
-  const { user } = useContext(AuthContext);
   const [comments, setComments] = useState([]);
   const [ show, setShow ] = useState(false); 
   const [ showC, setShowC ] = useState(false);
@@ -39,11 +37,6 @@ const Answer = (props) => {
   //   // });
   // }
   
-  const isUserMatching = () => {
-    if (props.user.id === props.user_id ){
-     return <button variant="danger" onClick={() => props.deleteAnswer(props.aID)}>Delete Answer</button>;
-    }
-  }
   
   
 
@@ -53,9 +46,8 @@ const Answer = (props) => {
         <br />
         <h4 onClick={() => { setShow(!show);
          setShowC(!showC);}}>{props.body}</h4>
-         {isUserMatching()}
-         
-        {show && <Comments {...comments} answerID={props.id} authUser={user} userID={props.user_id}/>}
+         <button variant="danger" onClick={() => props.deleteAnswer(props.aID)}>Delete Answer</button>
+        {show && <Comments answerID={props.id} userID={props.user_id}/>}
         
       </div>
     );

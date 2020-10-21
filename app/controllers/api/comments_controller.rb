@@ -1,5 +1,5 @@
 class Api::CommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :authenticate_user!
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :set_answer
   
@@ -41,8 +41,7 @@ class Api::CommentsController < ApplicationController
   private
 
   def set_answer
-    # @answer = current_user.answers.find(params[:answer_id])
-    @answer = Answer.find(params[:answer_id])
+    @answer = current_user.answers.find(params[:answer_id])
   end
 
   def set_comment

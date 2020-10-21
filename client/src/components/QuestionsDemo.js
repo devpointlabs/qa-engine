@@ -3,11 +3,9 @@ import axios from "axios";
 import QuestionForm from "./QuestionForm";
 import { Link } from "react-router-dom";
 import { Card, CardDescription, CardHeader, CardMeta } from 'semantic-ui-react';
-import { AuthContext } from "../providers/AuthProvider";
-
-const MyQuestions = (props) => {
+{}
+const QuestionsDemo = () => {
   const [questions, setQuestions] = useState([]);
-  
   // const [answers, setAnswers] = useState([]);
 
   const handleClick = (e) => {
@@ -66,7 +64,6 @@ const MyQuestions = (props) => {
     })
   };
 
-
   return (
     <>
       <div>
@@ -85,7 +82,7 @@ const MyQuestions = (props) => {
               }}>{q.title}</Link></CardHeader></h3>
             <CardMeta>{q.body}</CardMeta>
             </Card>
-            <button variant="danger" onClick={() => deleteQuestion(questions.id)}>Delete Question</button>
+            <button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</button>
             </div>
         ))}
       </div>
@@ -93,7 +90,7 @@ const MyQuestions = (props) => {
   );
 };
 
-export default MyQuestions;
+export default QuestionsDemo;
 
           // array.forEach(element => {
             

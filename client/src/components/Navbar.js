@@ -38,11 +38,11 @@ const NavBar = () => {
   return (
     <div style={styles.navbar}>
       <div>
-        <Link to="/">All Questions</Link>
+        <Link to="/">Home</Link>
         {/* <span style={{ marginRight: "10px" }}></span>
         {user && <Link to="/thingsDemo">Things</Link>} */}
         <span style={{ marginRight: "10px" }}></span>
-      {user && <Link to="/MyQuestions">My Questions</Link>}
+      {user && <Link to="/questionsDemo">Questions</Link>}
       </div>
       <div>{getRightNav()}</div>
     </div>
