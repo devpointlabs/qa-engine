@@ -42,7 +42,7 @@ const Comments = (props) => {
   const renderComments = () => {
     return comments.map((com) => (
       <div key={com.id}>
-        <p>{com.body}</p>
+        <p dangerouslySetInnerHTML={{__html: com.body}}></p>
         <button variant="danger" onClick={() => deleteComment(com.id)}>Delete Comment</button>
       </div>
       

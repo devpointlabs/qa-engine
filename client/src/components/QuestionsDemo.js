@@ -56,6 +56,8 @@ const QuestionsDemo = () => {
     });
   };
 
+  
+
   const deleteQuestion = (id) => {
     axios.delete(`/api/questions/${id}`, {params:{id:id}}).then(res => {
       console.log(res);

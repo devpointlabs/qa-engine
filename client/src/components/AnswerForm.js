@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Axios from "axios";
-import Editor from './Editor';
+import ReactQuill, { Quill, Toolbar } from 'react-quill';
+import QuestionForm from './QuestionForm';
 
 const AnswerForm = (props) => {
 
@@ -19,17 +20,26 @@ const AnswerForm = (props) => {
     //   });
   };
 
+  const handleQuillChange = (html) => {
+    setBody(html);
+}
+
 return (
 <>
   <form onSubmit={handleSubmit}>
-    <input 
-      label="Body"
-      placeholder="Enter Answer Here"
-      type="text"
-      value={body}
-      onChange={(e) => setBody(e.target.value)}
-      required  
-      />
+  <ReactQuill
+    theme="snow"
+    onChange={handleQuillChange}
+    label="Body"
+    placeholder="Enter Answer Here"
+    name="body"
+    type="text"
+    required
+    value={body}
+    formats={QuestionForm.formats}
+    modules={QuestionForm.modules}
+          // style={{ height: 500 }}
+        />
     <button>Submit</button>
   </form>
 </>
@@ -40,3 +50,12 @@ return (
 
 export default AnswerForm;
 
+
+{/* <input 
+  label="Body"
+  placeholder="Enter Answer Here"
+  type="text"
+  value={body}
+  onChange={(e) => setBody(e.target.value)}
+  required  
+  /> */}

@@ -44,8 +44,8 @@ const Answer = (props) => {
     return(
       <div>
         <br />
-        <h4 onClick={() => { setShow(!show);
-         setShowC(!showC);}}>{props.body}</h4>
+        <div onClick={() => { setShow(!show);
+          }} dangerouslySetInnerHTML={{__html:props.body}}></div>
          <button variant="danger" onClick={() => props.deleteAnswer(props.aID)}>Delete Answer</button>
         {show && <Comments answerID={props.id} userID={props.user_id}/>}
         

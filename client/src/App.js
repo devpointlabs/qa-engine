@@ -17,7 +17,7 @@ import Upvote from "./components/Upvote"
 import Editor from "./components/Editor";
 // import Login from "./components/Login";
 // import User from "./components/User";
-
+import "./App.css";
 // anything in fetchuser will be hidden while that checkuser function is running
 
 function App() {
