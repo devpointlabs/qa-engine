@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Card, CardHeader, CardMeta } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import { AuthContext } from "../providers/AuthProvider";
 
 
-const Home = () => {
+const AllQuestions = () => {
+  const { user } = useContext(AuthContext);
   const [ questions, setQuestions ] = useState([]);
 
   useEffect(() => {
@@ -40,4 +42,4 @@ const Home = () => {
   )
 };
 
-export default Home;
+export default AllQuestions;

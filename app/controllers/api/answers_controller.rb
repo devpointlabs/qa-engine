@@ -7,6 +7,11 @@ class Api::AnswersController < ApplicationController
     render json: @question.answers.all
   end
 
+  def all_answers
+    render json: @qAnswer.answers.all
+  end
+
+
   def show
     render json: @answer
   end
@@ -41,7 +46,7 @@ class Api::AnswersController < ApplicationController
   private
 
   def set_question
-    @question = current_user.questions.find(params[:question_id])
+    @question = Question.find(params[:question_id])
   end
 
   def set_answer

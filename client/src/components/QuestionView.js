@@ -100,7 +100,7 @@ const Question = (props) => {
         <br />
         {answers.map((a) => (
         
-          <Answer {...a} aID={a.id} deleteAnswer={deleteAnswer}/>
+          <Answer {...a} aID={a.id} user={user} deleteAnswer={deleteAnswer}/>
           
             // {show && <Comments questionID={question.id} answerID={a.id} />}
           //<Button onClick={() => setShow(!show)}>{show ? "Hide Comments" : "Comments"}</Button>
