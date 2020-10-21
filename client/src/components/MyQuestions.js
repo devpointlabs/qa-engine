@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import QuestionForm from "./QuestionForm";
 import { Link } from "react-router-dom";
 import { Card, CardDescription, CardHeader, CardMeta } from 'semantic-ui-react';
-{}
-const QuestionsDemo = () => {
+import { AuthContext } from "../providers/AuthProvider";
+
+const MyQuestions = (props) => {
+  const { user } = useContext(AuthContext);
   const [questions, setQuestions] = useState([]);
   // const [answers, setAnswers] = useState([]);
 
@@ -92,7 +94,7 @@ const QuestionsDemo = () => {
   );
 };
 
-export default QuestionsDemo;
+export default MyQuestions;
 
           // array.forEach(element => {
             
