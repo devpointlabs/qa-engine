@@ -50,11 +50,15 @@ const Comments = (props) => {
     }
   }
 
+//   const handleQuillChange = (html) => {
+//     setBody(html);
+// }
+
 
   const renderComments = () => {
     return comments.map((com) => (
       <div key={com.id}>
-        <Comment {...com} dangerouslySetInnerHTML={{__html: com.body}}></Comment>
+        <Comment {...com} >{com.body}</Comment>
         {isUserMatching(com.user_id, com.id)}
       </div>
       
@@ -67,8 +71,9 @@ const Comments = (props) => {
 
   return(
     <div>
-      <p>Comments:</p>
-      <p>{renderComments()}</p>
+      <p>Comments: </p>
+      {renderComments()}
+      
       <CommentForm answerID={props.answerID} addComment={addComment} user={user} />
       
     </div>

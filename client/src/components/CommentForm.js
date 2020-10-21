@@ -19,18 +19,18 @@ const CommentForm = (props) => {
 return (
 <>
   <form onSubmit={handleSubmit}>
-  <ReactQuill
-    theme="snow"
-    onChange={handleQuillChange}
-    label="Body"
-    placeholder="Enter Comment Here"
-    name="body"
-    type="text"
-    required
-    value={body}
-    formats={QuestionForm.formats}
-    modules={QuestionForm.modules}
-    />
+    <ReactQuill
+      theme="snow"
+      onChange={handleQuillChange}
+      label="Body"
+      placeholder="Enter Comment Here"
+      name="body"
+      type="text"
+      required
+      value={body}
+      formats={QuestionForm.formats}
+      modules={QuestionForm.modules}
+      />
     <button>Submit</button>
   </form>
 </>
