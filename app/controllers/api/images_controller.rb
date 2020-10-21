@@ -5,7 +5,9 @@ class Api::ImagesController < ApplicationController
   #   render json: current_user.images
   # end
 
-
+  def index
+    render json: current_user.images.last
+  end
 
 
   def create
