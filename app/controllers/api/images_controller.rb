@@ -1,12 +1,13 @@
 class Api::ImagesController < ApplicationController
   # before_action :authenticate_user!
+  before_action :set_user, only: [:index]
 
   # def index
   #   render json: current_user.images
   # end
 
   def index
-    render json: current_user.images.last
+    render json: @user.images.last
   end
 
 
@@ -27,4 +28,11 @@ class Api::ImagesController < ApplicationController
       end
     end
   end
+
+private
+def set_user
+  @user = User.find(params[:user_id])
+end
+
+
 end
