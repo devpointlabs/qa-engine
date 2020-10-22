@@ -48,7 +48,7 @@ export default FetchUser;
   /* <FetchUser>
        <Container>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={AllQuestions} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <ProtectedRoute exact path="/thingsDemo" component={ThingsDemo} />

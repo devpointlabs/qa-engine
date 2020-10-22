@@ -4,7 +4,7 @@ import AnswerForm from "./AnswerForm";
 import { Card, CardHeader, Button } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 import Answer from "./Answer";
-import Comment from "./Comment";
+import Comments from "./Comments";
 
 
 
@@ -42,6 +42,8 @@ const Question = (props) => {
 
   }, []);
 
+
+
     // const getComments = (answer) = {
     //     Axios
     //     .get(`/api/questions/${question.id}/answers/${answer}/comments`)
@@ -67,6 +69,20 @@ const Question = (props) => {
     
     }
 
+
+    // const updateAnswer = (answer) => {
+
+    // }
+
+    const deleteAnswer = (id) => {
+      Axios.delete(`/api/questions/${question.id}/answers/${id}`, {params:{id:id}}).then(res => {
+        console.log(res);
+  
+        setAnswers(answers.filter((answer) => answer.id !== id));
+      })
+    };
+
+
     // const onAnswerClick = (answer) => {
     //   getComments(answer);
       
@@ -75,29 +91,30 @@ const Question = (props) => {
 
     
     return (
-      <div>
+      <div key={question.id}>
         <h1>Question:</h1>
         <h2>{question.title}</h2>
         <br />
-        <p>{question.body}</p>
+        <p dangerouslySetInnerHTML={{__html: question.body}}></p>
         <br />
         <br />
         {answers.map((a) => (
-
-        <Answer {...a} />
-          // {show && <Comments questionID={question.id} answerID={a.id} />}
-        //<Button onClick={() => setShow(!show)}>{show ? "Hide Comments" : "Comments"}</Button>
-
+        
+          <Answer {...a} aID={a.id} user={user} deleteAnswer={deleteAnswer}/>
+          
+            // {show && <Comments questionID={question.id} answerID={a.id} />}
+          //<Button onClick={() => setShow(!show)}>{show ? "Hide Comments" : "Comments"}</Button>
+       
         ))}
         <h2></h2>
-        <AnswerForm addAnswer={addAnswer} questionID={question.id} user={user}/>
-        
+        <AnswerForm addAnswer={addAnswer}  questionID={question.id} user={user}/>
       </div>
     )
-
 }
 
 export default Question;
+
+
 
 
 //onClick={onAnswerClick(a.id)} 

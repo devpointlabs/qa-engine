@@ -1,22 +1,23 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
+import AllQuestions from "./components/AllQuestions";
 import NavBar from "./components/Navbar";
-import ThingsDemo from "./things/ThingsDemo";
 import { Container } from "semantic-ui-react";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import FetchUser from "./components/FetchUser";
 import ProtecedRoute from "./components/ProtectedRoute";
-import QuestionsDemo from "./components/QuestionsDemo";
+import MyQuestions from "./components/MyQuestions";
 import QuestionForm from "./components/QuestionForm";
 import QuestionView from "./components/QuestionView";
 import Answer from "./components/Answer";
 import AnswerForm from "./components/AnswerForm";
 import Upvote from "./components/Upvote"
+
+import Images from "./images/Images";
 // import Login from "./components/Login";
 // import User from "./components/User";
-
+import "./App.css";
 // anything in fetchuser will be hidden while that checkuser function is running
 
 function App() {
@@ -27,14 +28,14 @@ function App() {
       <Container>
         <FetchUser>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={AllQuestions} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/questionView/:id" component={QuestionView} />
             <Route exact path="/upvote" component={Upvote} />
-            <ProtecedRoute exact path="/thingsDemo" component={ThingsDemo} />
-            <ProtecedRoute exact path="/questionsDemo" component={QuestionsDemo} />
+            <ProtecedRoute exact path="/MyQuestions" component={MyQuestions} />
             <ProtecedRoute exact path="/questions/new" component={QuestionForm} />
+            <ProtecedRoute exact path="/images" component={Images}/>
             {/* <ProtecedRoute exact path="/user" component={User} /> */}
           </Switch>
         </FetchUser>

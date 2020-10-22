@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import QuestionForm from "./QuestionForm";
 import { Link } from "react-router-dom";
 import { Card, CardDescription, CardHeader, CardMeta } from 'semantic-ui-react';
-{}
-const QuestionsDemo = () => {
+import { AuthContext } from "../providers/AuthProvider";
+
+const MyQuestions = (props) => {
+  const { user } = useContext(AuthContext);
   const [questions, setQuestions] = useState([]);
   // const [answers, setAnswers] = useState([]);
 
@@ -45,8 +47,26 @@ const QuestionsDemo = () => {
   }, []);
 
   const addQuestion = (question) => {
-    console.log(question);
-  }
+    axios
+      .post(`/api/questions`, question)
+      .then((res) => {
+        setQuestions([...questions, res.data]);
+        // history.push(res.data)
+      })
+      .catch((err) =>{
+        alert("Something went wrong");
+    });
+  };
+
+  
+
+  const deleteQuestion = (id) => {
+    axios.delete(`/api/questions/${id}`, {params:{id:id}}).then(res => {
+      console.log(res);
+
+      setQuestions(questions.filter((question) => question.id !== id));
+    })
+  };
 
   return (
     <>
@@ -54,24 +74,27 @@ const QuestionsDemo = () => {
         <br />
         <br />
         <br />
-        <QuestionForm add={addQuestion}/>
+        <QuestionForm addQuestion={addQuestion} />
            <br />
         <br />
         {questions.map((q) => (
+          <div>
             <Card key={q.id}>
               <h3><CardHeader><Link to={{
               pathname: `/questionView/${q.id}`,
               idProps: { question: {...q}}
               }}>{q.title}</Link></CardHeader></h3>
-            <CardMeta>{q.body}</CardMeta>
+            <CardMeta dangerouslySetInnerHTML={{__html: q.body}}></CardMeta>
             </Card>
+            <button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</button>
+            </div>
         ))}
       </div>
     </>
   );
 };
 
-export default QuestionsDemo;
+export default MyQuestions;
 
           // array.forEach(element => {
             
