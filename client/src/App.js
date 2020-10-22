@@ -33,7 +33,6 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/questionView/:id" component={QuestionView} />
             <Route exact path="/upvote" component={Upvote} />
-            <ProtecedRoute exact path="/thingsDemo" component={ThingsDemo} />
             <ProtecedRoute exact path="/MyQuestions" component={MyQuestions} />
             <ProtecedRoute exact path="/questions/new" component={QuestionForm} />
             <ProtecedRoute exact path="/images" component={Images}/>
