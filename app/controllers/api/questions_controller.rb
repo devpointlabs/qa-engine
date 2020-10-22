@@ -41,6 +41,11 @@ class Api::QuestionsController < ApplicationController
     @question.destroy
   end
 
+  def vote
+    @question.liked_by current_user
+    render json: @question.votes_for.size 
+  end
+
   private
 
   def set_question
