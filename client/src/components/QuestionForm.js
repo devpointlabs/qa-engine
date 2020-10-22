@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import axios from 'axios';
-// import {AuthConsumer} from '../providers/AuthProvider';
+import {AuthConsumer, AuthContext} from '../providers/AuthProvider';
 
 const QuestionForm = (props) => {
+  const { user } = useContext(AuthContext);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addQuestion({body: body, title:title})
+    props.addQuestion({body: body, title: title, first_name: user.first_name })
     // axios
     //   .post("/api/questions", {title, body})
     //   .then((res) => {

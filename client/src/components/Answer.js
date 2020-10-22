@@ -51,6 +51,7 @@ const Answer = (props) => {
     return(
       <div>
         <br />
+        <p>User: {props.first_name}</p>
         <h4 onClick={() => { setShow(!show);
          setShowC(!showC);}}>{props.body}</h4>
          {isUserMatching()}

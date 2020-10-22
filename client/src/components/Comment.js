@@ -4,7 +4,7 @@ const Comment = (props) => {
 
   return (
     <div>
-      <p>{props.children}</p>
+      <p>User {props.first_name}: {props.children}</p>
     </div>
   )
 }

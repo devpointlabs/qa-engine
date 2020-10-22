@@ -49,6 +49,6 @@ class Api::CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :user_id, :answer_id, :upvote)
+    params.require(:comment).permit(:body, :user_id, :answer_id, :upvote, :first_name, :last_name, :image_url)
   end
 end
