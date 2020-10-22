@@ -13,10 +13,11 @@ import QuestionView from "./components/QuestionView";
 import Answer from "./components/Answer";
 import AnswerForm from "./components/AnswerForm";
 import Upvote from "./components/Upvote"
+
 import Images from "./images/Images";
 // import Login from "./components/Login";
 // import User from "./components/User";
-
+import "./App.css";
 // anything in fetchuser will be hidden while that checkuser function is running
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/questionView/:id" component={QuestionView} />
             <Route exact path="/upvote" component={Upvote} />
+            <ProtecedRoute exact path="/thingsDemo" component={ThingsDemo} />
             <ProtecedRoute exact path="/MyQuestions" component={MyQuestions} />
             <ProtecedRoute exact path="/questions/new" component={QuestionForm} />
             <ProtecedRoute exact path="/images" component={Images}/>

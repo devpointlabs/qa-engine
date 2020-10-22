@@ -4,7 +4,7 @@ const Comment = (props) => {
 
   return (
     <div>
-      <p>{props.children}</p>
+      <p dangerouslySetInnerHTML={{__html:props.body}}></p>
     </div>
   )
 }

@@ -58,6 +58,8 @@ const MyQuestions = (props) => {
     });
   };
 
+  
+
   const deleteQuestion = (id) => {
     axios.delete(`/api/questions/${id}`, {params:{id:id}}).then(res => {
       console.log(res);
@@ -82,7 +84,7 @@ const MyQuestions = (props) => {
               pathname: `/questionView/${q.id}`,
               idProps: { question: {...q}}
               }}>{q.title}</Link></CardHeader></h3>
-            <CardMeta>{q.body}</CardMeta>
+            <CardMeta dangerouslySetInnerHTML={{__html: q.body}}></CardMeta>
             </Card>
             <button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</button>
             </div>
