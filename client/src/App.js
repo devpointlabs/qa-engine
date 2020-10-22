@@ -13,10 +13,13 @@ import QuestionView from "./components/QuestionView";
 import Answer from "./components/Answer";
 import AnswerForm from "./components/AnswerForm";
 import Upvote from "./components/Upvote"
+
 import MyProfile from "./components/MyProfile";
+
+
 // import Login from "./components/Login";
 // import User from "./components/User";
-
+import "./App.css";
 // anything in fetchuser will be hidden while that checkuser function is running
 
 function App() {
