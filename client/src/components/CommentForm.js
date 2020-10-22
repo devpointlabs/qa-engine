@@ -9,7 +9,7 @@ const CommentForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-      props.addComment({body: body, user_id: props.user.id, answer_id: props.answerID})
+      props.addComment({body: body, user_id: props.user.id, first_name: props.user.first_name, answer_id: props.answerID})
   };
 
   const handleQuillChange = (html) => {
