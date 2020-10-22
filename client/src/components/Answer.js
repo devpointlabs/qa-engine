@@ -51,9 +51,11 @@ const Answer = (props) => {
     return(
       <div>
         <br />
+
         <p>User: {props.first_name}</p>
-        <h4 onClick={() => { setShow(!show);
-         setShowC(!showC);}}>{props.body}</h4>
+        <div onClick={() => { setShow(!show);
+         }} dangerouslySetInnerHTML={{__html:props.body}}></div>
+
          {isUserMatching()}
          
         {show && <Comments {...comments} answerID={props.id} authUser={user} userID={props.user_id}/>}

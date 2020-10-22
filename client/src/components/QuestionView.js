@@ -95,7 +95,7 @@ const Question = (props) => {
         <h1>Question:</h1>
         <h2>{question.title}</h2><h4>  user: {question.first_name}</h4>
         <br />
-        <p>{question.body}</p>
+        <p dangerouslySetInnerHTML={{__html: question.body}}></p>
         <br />
         <br />
         {answers.map((a) => (
@@ -113,6 +113,8 @@ const Question = (props) => {
 }
 
 export default Question;
+
+
 
 
 //onClick={onAnswerClick(a.id)} 
