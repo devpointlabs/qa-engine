@@ -27,7 +27,7 @@ function ImageUploader() {
       // appending 'file' with image info to pass can retieve in params
       let data = new FormData();
       data.append("file", fileItems[0].file);
-      const res = await Axios.post(`/api/images/create`, data);
+      const res = await Axios.post(`/api/images?name=test`, data);
       console.log(res.data);
     } catch (err) {
       console.log(err.response); //err.response from axios
@@ -37,6 +37,9 @@ function ImageUploader() {
 
   return (
     <div>
+
+
+      
       <FilePond
         files={files}
         onupdatefiles={handleUpdate}

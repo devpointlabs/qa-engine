@@ -44,7 +44,7 @@ const NavBar = () => {
         <span style={{ marginRight: "10px" }}></span>
       {user && <Link to="/MyQuestions">My Questions</Link>}
       <span style={{ marginRight: "10px" }}></span>
-      {user && <Link to="/images">Images</Link>}
+      {user && <Link to="/MyProfile">My Profile</Link>}
       </div>
       <div>{getRightNav()}</div>
     </div>
