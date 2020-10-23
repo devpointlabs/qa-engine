@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import ReactQuill, { Quill, Toolbar } from 'react-quill';
+import { Redirect } from 'react-router-dom';
 // import {AuthConsumer} from '../providers/AuthProvider';
 
 const QuestionForm = (props) => {
@@ -14,6 +15,9 @@ const QuestionForm = (props) => {
     // debugger
     // history.addQuestion({body: body, title:title})
     props.addQuestion({title: title, body: body});
+    return (
+    <Redirect to ="/AllQuestions" />
+    )
   }
 
     const handleQuillChange = (html) => {

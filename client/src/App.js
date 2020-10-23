@@ -13,6 +13,7 @@ import QuestionView from "./components/QuestionView";
 import Answer from "./components/Answer";
 import AnswerForm from "./components/AnswerForm";
 import Upvote from "./components/Upvote"
+import AskQuestion from './components/AskQuestion'
 
 import Images from "./images/Images";
 // import Login from "./components/Login";
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/questionView/:id" component={QuestionView} />
             <Route exact path="/upvote" component={Upvote} />
+            <Route exact path="/AskQuestion" component={AskQuestion} />
             <ProtecedRoute exact path="/MyQuestions" component={MyQuestions} />
             <ProtecedRoute exact path="/questions/new" component={QuestionForm} />
             <ProtecedRoute exact path="/images" component={Images}/>

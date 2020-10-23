@@ -73,8 +73,10 @@ const MyQuestions = (props) => {
       <div>
         <br />
         <br />
+        <Link to={{pathname: '/AskQuestion'}}>Add a Question</Link>
         <br />
-        <QuestionForm addQuestion={addQuestion} />
+        <br />
+        <br />
            <br />
         <br />
         {questions.map((q) => (

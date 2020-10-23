@@ -73,7 +73,7 @@ const AuthProvider = (props) => {
       setUser(null);
       history.push("/login");
     } catch (err) {
-      debugger;
+      // debugger;
     }
   };
   return (
