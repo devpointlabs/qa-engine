@@ -71,6 +71,6 @@ class Api::QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:title, :body, :is_answered, :upvote )
+    params.require(:question).permit(:title, :body, :is_answered, :upvote, :first_name, :last_name, :image_url )
   end
 end

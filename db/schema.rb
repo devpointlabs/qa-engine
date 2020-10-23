@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 2020_10_22_182752) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "image_url"
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
@@ -34,6 +37,9 @@ ActiveRecord::Schema.define(version: 2020_10_22_182752) do
     t.bigint "answer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "image_url"
     t.index ["answer_id"], name: "index_comments_on_answer_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -55,6 +61,9 @@ ActiveRecord::Schema.define(version: 2020_10_22_182752) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "image_url"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
