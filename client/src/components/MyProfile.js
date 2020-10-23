@@ -16,27 +16,19 @@ const MyProfile = (props) => {
   
     useEffect(() => {
   
-      console.log("useEffect triggered");
-      Axios
-        .get(`/api/images/${user.id}`)
-        .then((response) => {
-          setImage(response.data);
-        })
-        .catch((error) => {
-          alert("error in retrieving image!");
-        });
-  
-        // Axios
-        //   .get(`/api/questions/${props.match.params.id}/answers`)
-        //   .then((response) => {
-        //     setAnswers(response.data);
-        //     console.log("successfully retrieved answers");
-        //   })
-        //   .catch((error) => {
-        //     alert("error in retrieving answers for this question");
-        // });
   
     }, []); 
+
+    const displayImage = () => {
+     return (
+       <div>
+         <img src={user.image}/>
+       </div>
+     )
+
+     };
+   
+
 
   return (
     <div>
@@ -44,9 +36,10 @@ const MyProfile = (props) => {
       <h3>First Name: {user.first_name}</h3>
       <h3>Last Name: {user.last_name}</h3>
       <h3>Email: {user.email}</h3>
-      {/* <h3>Avatar: {user.image}</h3> */}
-      <img src={image.image_url} />
-      <ImageUploader />
+      {displayImage()}
+      
+
+      <ImageUploader userID={user.id}/>
     </div>
   );
 };

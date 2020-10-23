@@ -12,17 +12,14 @@ Rails.application.routes.draw do
     # resources :answers do
     #     resources :comments
     
-  
+      
     end
-    post "/images/create/", to: "images#create"
-    get "/images", to: "images#index"
+    resources :users, only: :update
     
     resources :answers do
       resources :comments
     end
     get "all_questions", to: "questions#all_questions"
-    # post "/images/create/", to: "images#create"
-    # get "/images", to: "images#index"
   end
 end
 
