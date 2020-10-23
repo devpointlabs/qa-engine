@@ -20,6 +20,13 @@ Rails.application.routes.draw do
       resources :comments
     end
     get "all_questions", to: "questions#all_questions"
+    # post "/images/create/", to: "images#create"
+    # get "/images", to: "images#index"
+
+    # VOTES
+    put '/question/:id/vote', to: 'questions#vote'
+    get '/question/:id/get_vote', to: 'questions#get_vote'
+
   end
 end
 
