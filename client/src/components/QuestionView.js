@@ -5,6 +5,7 @@ import { Card, CardHeader, Button } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 import Answer from "./Answer";
 import Comments from "./Comments";
+import Upvote from "./Upvote"
 
 
 
@@ -93,10 +94,11 @@ const Question = (props) => {
     return (
       <div key={question.id}>
         <h1>Question:</h1>
-        <h2>{question.title}</h2>
+        <h2>{question.title}</h2><h4>  user: {question.first_name}</h4>
         <br />
         <p dangerouslySetInnerHTML={{__html: question.body}}></p>
         <br />
+        <Upvote qId={question.id} upvote={question.upvote} question={question}></Upvote>
         <br />
         {answers.map((a) => (
         

@@ -85,7 +85,7 @@ const MyQuestions = (props) => {
               <h3><CardHeader><Link to={{
               pathname: `/questionView/${q.id}`,
               idProps: { question: {...q}}
-              }}>{q.title}</Link></CardHeader></h3>
+              }}>{q.title}</Link></CardHeader></h3><CardDescription>from: {q.first_name}</CardDescription>
             <CardMeta dangerouslySetInnerHTML={{__html: q.body}}></CardMeta>
             </Card>
             <button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</button>

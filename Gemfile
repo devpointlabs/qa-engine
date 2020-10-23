@@ -18,14 +18,15 @@ gem "puma", "~> 4.1"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'acts_as_votable'
+gem 'rack-cors'
 gem "faker", :git => "https://github.com/faker-ruby/faker.git", :branch => "master"
 
 gem "devise_token_auth"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
-
+gem "cloudinary"
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
@@ -35,9 +36,11 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem "pry-rails"
+  gem "dotenv-rails"
 end
 
 group :development do
+ 
   gem "listen", "~> 3.2"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"

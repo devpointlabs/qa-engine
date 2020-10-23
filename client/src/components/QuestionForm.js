@@ -1,35 +1,24 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import axios from 'axios';
+
+import {AuthConsumer, AuthContext} from '../providers/AuthProvider';
 import ReactQuill, { Quill, Toolbar } from 'react-quill';
-import { Redirect } from 'react-router-dom';
-// import {AuthConsumer} from '../providers/AuthProvider';
 
 const QuestionForm = (props) => {
-
+  const { user } = useContext(AuthContext);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // debugger
-    // history.addQuestion({body: body, title:title})
-    props.addQuestion({title: title, body: body});
-    return (
-    <Redirect to ="/AllQuestions" />
-    )
+    props.addQuestion({body: body, title: title, first_name: user.first_name })
   }
 
     const handleQuillChange = (html) => {
   	  setBody(html);
   }
 
-
-
-
-    //     console.log("Error problem posting");
-    //     alert("Error saving question");
-    //   });
   
   return (
 
