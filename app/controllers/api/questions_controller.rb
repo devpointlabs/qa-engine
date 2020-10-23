@@ -64,6 +64,11 @@ class Api::QuestionsController < ApplicationController
     # render json: @question.votes_for.size 
   end
 
+
+  def search_questions
+    render json: Question.search_questions(params[:search], params[:search], params[:search], params[:search])
+  end
+
   private
 
   def set_question

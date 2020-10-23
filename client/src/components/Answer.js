@@ -4,6 +4,7 @@ import AnswerForm from "./AnswerForm";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 import { AuthContext } from "../providers/AuthProvider";
+import AnswerUpvote from "./AnswerUpvote"
 
 
 const Answer = (props) => {
@@ -59,8 +60,10 @@ const Answer = (props) => {
          {isUserMatching()}
          
         {show && <Comments {...comments} answerID={props.id} authUser={user} userID={props.user_id}/>}
-        
+        {/* <div><AnswerUpvote aId={answer.id} upvote={answer.upvote} question={answer}></AnswerUpvote></div> */}
       </div>
+      
+
     );
   };
 

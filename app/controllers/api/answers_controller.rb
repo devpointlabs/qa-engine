@@ -1,7 +1,7 @@
 class Api::AnswersController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :destroy ]
+  before_action :authenticate_user!, only: [:create, :update, :destroy, :vote ]
   before_action :set_question
-  before_action :set_answer, only: [ :show, :update, :destroy ]
+  before_action :set_answer, only: [ :show, :update, :destroy, :vote, :get_vote ]
 
   def index
     render json: @question.answers.all
@@ -41,6 +41,28 @@ class Api::AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
+  end
+
+    def get_vote
+    
+    render json: @question.votes_for.size 
+  end
+  
+  def vote
+    if current_user.voted_for? @answer
+      # render json: {message: "already voted on"} 
+      render json: @answer.votes_for.size
+    else
+    @answer.liked_by current_user
+    # if @question.update(question_params)
+      # binding.pry
+      # render json: @question
+      render json: @answer.votes_for.size 
+    # else
+    end
+      # render json: @question.errors, status: 422
+    # end
+    # render json: @question.votes_for.size 
   end
 
   private
