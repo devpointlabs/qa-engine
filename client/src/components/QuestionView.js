@@ -98,7 +98,7 @@ const Question = (props) => {
         <br />
         <p dangerouslySetInnerHTML={{__html: question.body}}></p>
         <br />
-        <Upvote></Upvote>
+        <Upvote qId={question.id} upvote={question.upvote} question={question}></Upvote>
         <br />
         {answers.map((a) => (
         
