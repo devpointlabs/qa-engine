@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import Axios from "axios";
 import QuestionForm from "./QuestionForm";
 import { Link } from "react-router-dom";
-import { Card, CardDescription, CardHeader, CardMeta } from 'semantic-ui-react';
 import { AuthContext } from "../providers/AuthProvider";
 import ImageUploader from '../images/ImageUploader';
 
@@ -19,14 +18,14 @@ const MyProfile = (props) => {
   
     }, []); 
 
-    const displayImage = () => {
-     return (
-       <div>
-         <img src={user.image}/>
-       </div>
-     )
+    // const displayImage = () => {
+    //  return (
+    //    <div>
+    //      <img src={user.image}/>
+    //    </div>
+    //  )
 
-     };
+    //  };
    
 
 
@@ -36,10 +35,17 @@ const MyProfile = (props) => {
       <h3>First Name: {user.first_name}</h3>
       <h3>Last Name: {user.last_name}</h3>
       <h3>Email: {user.email}</h3>
-      {displayImage()}
+     
+      <img src={user.image}/>
+      <button>Edit Info</button>
       
-
+      {/* {displayImage()} */}
+      <br/>
+      <br/>
+      <br/>
+      Add or update current photo
       <ImageUploader userID={user.id}/>
+      
     </div>
   );
 };
