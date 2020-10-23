@@ -35,7 +35,7 @@ const AllQuestions = () => {
               pathname: `/questionView/${q.id}`,
               idProps: { question: {...q}}
               }}>{q.title}</Link></CardHeader></h3>
-            <CardMeta>{q.body}</CardMeta>
+            <CardMeta dangerouslySetInnerHTML={{__html:q.body}}></CardMeta>
             </Card>
         ))}
     </div>
