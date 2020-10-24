@@ -2,7 +2,7 @@
 
 class User < ActiveRecord::Base
   extend Devise::Models
-
+  acts_as_voter
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :answers, through: :questions

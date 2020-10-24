@@ -18,7 +18,7 @@ import Axios from "axios";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 
-function ImageUploader() {
+function ImageUploader(props) {
   const [files, setFiles] = useState([]);
   const handleUpdate = async (fileItems) => {
     try {
@@ -27,7 +27,7 @@ function ImageUploader() {
       // appending 'file' with image info to pass can retieve in params
       let data = new FormData();
       data.append("file", fileItems[0].file);
-      const res = await Axios.post(`/api/images?name=test`, data);
+      const res = await Axios.put(`/api/users/${props.userID}`, data);
       console.log(res.data);
     } catch (err) {
       console.log(err.response); //err.response from axios
@@ -46,7 +46,7 @@ function ImageUploader() {
         // onupdatefiles={setFiles}
         allowMultiple={false}
         // maxFiles={3}
-        server="/api/images/create"
+        // server={`/api/users/${props.userID}`}
         name="files"
         // {/* sets the file input name, it's filepond by default */}
         labelIdle='Drag  Drop your files or <span class="filepond--label-action">Browse</span>'

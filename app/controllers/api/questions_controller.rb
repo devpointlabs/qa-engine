@@ -1,6 +1,6 @@
 class Api::QuestionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_question, only: [ :show, :update, :destroy ]
+  before_action :set_question, only: [ :show, :update, :destroy, :vote, :get_vote ]
 
   def index
     # render json: User.questions.all
@@ -9,7 +9,7 @@ class Api::QuestionsController < ApplicationController
 
   # !== all the questions that belong to this user
   def all_questions
-    render json: Question.all
+    render json: Question.all.order('created_at DESC')
   end
 
   def show
@@ -31,14 +31,37 @@ class Api::QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
+      # binding.pry
       render json: @question
     else
       render json: @question.errors, status: 422
     end
   end
-
+  
   def destroy
     @question.destroy
+  end
+
+  def get_vote
+    
+    render json: @question.votes_for.size 
+  end
+  
+  def vote
+    if current_user.voted_for? @question
+      # render json: {message: "already voted on"} 
+      render json: @question.votes_for.size
+    else
+    @question.liked_by current_user
+    # if @question.update(question_params)
+      # binding.pry
+      # render json: @question
+      render json: @question.votes_for.size 
+    # else
+    end
+      # render json: @question.errors, status: 422
+    # end
+    # render json: @question.votes_for.size 
   end
 
   private
