@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :set_answer
+  before_action :authenticate_user!, only: [:create, :update, :destroy, :vote ]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy, :vote, :get_vote ]
+  before_action :set_answer, only: [ :index, :show, :new, :create, :destroy ]
   
   def index
     render json: @answer.comments
@@ -36,6 +36,27 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
+  end
+
+  def get_vote
+    render json: @comment.votes_for.size 
+  end
+
+  def vote
+    if current_user.voted_for? @comment
+      # render json: {message: "already voted on"} 
+      render json: @comment.votes_for.size
+    else
+    @comment.liked_by current_user
+    # if @question.update(question_params)
+      # binding.pry
+      # render json: @question
+      render json: @comment.votes_for.size 
+    # else
+    end
+      # render json: @question.errors, status: 422
+    # end
+    # render json: @question.votes_for.size 
   end
 
   private

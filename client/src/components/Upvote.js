@@ -23,7 +23,7 @@ const Upvote = (props) => {
     //   alert("Error Voting")
     // });
   useEffect(() => {
-    Axios.get(`/api/question/${props.qId}/get_vote`)
+    Axios.get(`/api/${props.mString}/${props.mId}/get_vote`)
     // /question/:id/get_vote
       .then(res => {
       setCount(res.data)
@@ -40,7 +40,7 @@ const Upvote = (props) => {
     // debugger
     setCount(count + increment)
     Axios
-    .put(`/api/question/${props.qId}/vote`)
+    .put(`/api/${props.mString}/${props.mId}/vote`)
       .then(res => { 
         if (count === res.data) {
           alert("already voted")

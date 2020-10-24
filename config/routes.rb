@@ -27,6 +27,12 @@ Rails.application.routes.draw do
     put '/question/:id/vote', to: 'questions#vote'
     get '/question/:id/get_vote', to: 'questions#get_vote'
 
+    put '/answer/:id/vote', to: 'answers#vote'
+    get '/answer/:id/get_vote', to: 'answers#get_vote'
+
+    put '/comment/:id/vote', to: 'comments#vote'
+    get '/comment/:id/get_vote', to: 'comments#get_vote'
+
   end
 end
 
