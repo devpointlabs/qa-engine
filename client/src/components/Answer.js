@@ -4,6 +4,7 @@ import AnswerForm from "./AnswerForm";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 import { AuthContext } from "../providers/AuthProvider";
+import Upvote from "./Upvote";
 
 
 const Answer = (props) => {
@@ -54,10 +55,8 @@ const Answer = (props) => {
 
         <p>User: {props.first_name}</p>
         <div onClick={() => { setShow(!show);
-         }} dangerouslySetInnerHTML={{__html:props.body}}></div>
-
+         }} dangerouslySetInnerHTML={{__html:props.body}}></div><Upvote mString="answer" mId={props.id} upvote={props.upvote} answer={props} />
          {isUserMatching()}
-         
         {show && <Comments {...comments} answerID={props.id} authUser={user} userID={props.user_id}/>}
         
       </div>
