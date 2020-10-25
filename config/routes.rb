@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     put '/question/:id/vote', to: 'questions#vote'
     get '/question/:id/get_vote', to: 'questions#get_vote'
 
+    #Search question keywords
+    get "search_questions", to: "questions#search_questions"
+
   end
 end
 
