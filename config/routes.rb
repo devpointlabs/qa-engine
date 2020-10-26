@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resources :comments
     end
     get "all_questions", to: "questions#all_questions"
+    get "most_votes", to: "answers#most_votes"
     # post "/images/create/", to: "images#create"
     # get "/images", to: "images#index"
 

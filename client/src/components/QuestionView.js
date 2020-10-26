@@ -82,11 +82,17 @@ const Question = (props) => {
       })
     };
 
-
-    // const onAnswerClick = (answer) => {
-    //   getComments(answer);
-      
+    // const answerIsCorrect = (id) => {
+    //   Axios.put
+    
     // }
+
+
+  //   const isUserMatching = () => { //For toggling is_correct if user is owner of question asked.
+  //   if (props.idProps.question.user_id === user.id ){
+  //    return <button variant="danger" onClick={() => props.deleteAnswer(props.aID)}>Delete Answer</button>;
+  //   }
+  // }
 
 
     

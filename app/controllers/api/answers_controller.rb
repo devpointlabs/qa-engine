@@ -64,6 +64,10 @@ class Api::AnswersController < ApplicationController
     # render json: @question.votes_for.size 
   end
 
+  def most_votes
+    render json: Answer.highest_vote
+  end
+
   private
 
   def set_question

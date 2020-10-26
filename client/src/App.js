@@ -21,6 +21,7 @@ import MyProfile from "./components/MyProfile";
 // import Login from "./components/Login";
 // import User from "./components/User";
 import "./App.css";
+import Leaderboard from "./components/Leaderboard";
 // anything in fetchuser will be hidden while that checkuser function is running
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route exact path="/questionView/:id" component={QuestionView} />
             <Route exact path="/upvote" component={Upvote} />
             <Route exact path="/AskQuestion" component={AskQuestion} />
+            <Route exact path="/leaderboard" component={Leaderboard} />
             <ProtecedRoute exact path="/MyQuestions" component={MyQuestions} />
             <ProtecedRoute exact path="/questions/new" component={QuestionForm} />
             <ProtecedRoute exact path="/myprofile" component={MyProfile}/>
