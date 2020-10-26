@@ -89,7 +89,7 @@ class SearchBar extends React.Component {
           
           {this.state.searched ? (
             this.state.questions.length > 0 ? (
-              <AllQuestions />
+              <AllQuestions searchResults={this.state.questions} />
             ) : (
               "No keywords found "
             )

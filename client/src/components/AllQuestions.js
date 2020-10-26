@@ -6,14 +6,21 @@ import { AuthContext } from "../providers/AuthProvider";
 import SearchBar from './SearchBar';
 
 
-const AllQuestions = () => {
+const AllQuestions = (props) => {
   const { user } = useContext(AuthContext);
   const [ questions, setQuestions ] = useState([]);
 
   useEffect(() => {
 
+    if(props.searchResults) {
+    setQuestions(props.searchResults)
+    }
+    else {
+
     console.log("useEffect triggered");
+    
     Axios
+    
       .get(`/api/all_questions`)
       .then((response) => {
         setQuestions(response.data);
@@ -21,6 +28,8 @@ const AllQuestions = () => {
       .catch((error) => {
         alert("error in retrieving questions");
       });
+    }
+
     }, []);
   
 
