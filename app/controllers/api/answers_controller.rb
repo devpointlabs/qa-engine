@@ -1,6 +1,6 @@
 class Api::AnswersController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update, :destroy, :vote ]
-  before_action :set_question
+  before_action :set_question, only: [ :index, :all_answers, :show, :new, :create, :destroy ]
   before_action :set_answer, only: [ :show, :update, :destroy, :vote, :get_vote ]
 
   def index
@@ -43,11 +43,10 @@ class Api::AnswersController < ApplicationController
     @answer.destroy
   end
 
-    def get_vote
-    
+  def get_vote
     render json: @answer.votes_for.size 
   end
-  
+
   def vote
     if current_user.voted_for? @answer
       # render json: {message: "already voted on"} 
@@ -63,6 +62,10 @@ class Api::AnswersController < ApplicationController
       # render json: @question.errors, status: 422
     # end
     # render json: @question.votes_for.size 
+  end
+
+  def most_votes
+    render json: Answer.highest_vote
   end
 
   private

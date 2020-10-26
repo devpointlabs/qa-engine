@@ -36,8 +36,7 @@ const AllQuestions = () => {
               pathname: `/questionView/${q.id}`,
               idProps: { question: {...q}}
               }}>{q.title}</Link></CardHeader></h3>
-               {/* <Upvote qId={question.id} upvote={question.upvote} question={question}></Upvote> */}
-            <CardMeta>{q.body}</CardMeta>
+            <CardMeta dangerouslySetInnerHTML={{__html:q.body}}></CardMeta>
             </Card>
         ))}
     </div>

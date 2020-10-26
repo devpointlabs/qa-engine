@@ -9,7 +9,7 @@ class Api::QuestionsController < ApplicationController
 
   # !== all the questions that belong to this user
   def all_questions
-    render json: Question.all
+    render json: Question.all.order('created_at DESC')
   end
 
   def show
@@ -63,7 +63,6 @@ class Api::QuestionsController < ApplicationController
     # end
     # render json: @question.votes_for.size 
   end
-
 
   def search_questions
     render json: Question.search_questions(params[:search], params[:search], params[:search], params[:search])

@@ -58,7 +58,7 @@ const Comments = (props) => {
   const renderComments = () => {
     return comments.map((com) => (
       <div key={com.id}>
-        <Comment {...com} >{com.body}</Comment>
+        <Comment {...com}>{com.body}</Comment>
         {isUserMatching(com.user_id, com.id)}
       </div>
       

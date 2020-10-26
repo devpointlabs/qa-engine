@@ -64,7 +64,6 @@ const Question = (props) => {
         .post(`/api/questions/${question.id}/answers`, answer) 
         .then((res) => {
           setAnswers([...answers, res.data]);
-          // history.push(res.data)
         })
         .catch((err) =>{
           alert("Something went wrong");
@@ -85,11 +84,17 @@ const Question = (props) => {
       })
     };
 
-
-    // const onAnswerClick = (answer) => {
-    //   getComments(answer);
-      
+    // const answerIsCorrect = (id) => {
+    //   Axios.put
+    
     // }
+
+
+  //   const isUserMatching = () => { //For toggling is_correct if user is owner of question asked.
+  //   if (props.idProps.question.user_id === user.id ){
+  //    return <button variant="danger" onClick={() => props.deleteAnswer(props.aID)}>Delete Answer</button>;
+  //   }
+  // }
 
 
     
@@ -100,12 +105,12 @@ const Question = (props) => {
         <br />
         <p dangerouslySetInnerHTML={{__html: question.body}}></p>
         <br />
-        <Upvote qId={question.id} upvote={question.upvote} question={question}></Upvote>
+        <Upvote mString="question" mId={question.id} upvote={question.upvote} question={question}></Upvote>
         <br />
         
         {answers.map((a) => (
         
-          <Answer {...a} aID={a.id} user={user} deleteAnswer={deleteAnswer}/>
+          <div><Answer {...a} aID={a.id} user={user} deleteAnswer={deleteAnswer}/></div>
           
             // {show && <Comments questionID={question.id} answerID={a.id} />}
           //<Button onClick={() => setShow(!show)}>{show ? "Hide Comments" : "Comments"}</Button>
