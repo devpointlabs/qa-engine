@@ -31,6 +31,8 @@ class SearchBar extends React.Component {
       // Do stuff.
     });
   }
+
+  //Check later
   clearSearch = (searchValue) => {
     if (searchValue === "" || searchValue === undefined) {
       // debugger
@@ -69,7 +71,7 @@ class SearchBar extends React.Component {
           >
             <Form>
               <Input
-                placeholder="Search for questions"
+                placeholder="Search all questions"
                 onChange={this.handleSearchChange}
                 value={this.state.search}
                 name="search"
@@ -87,7 +89,7 @@ class SearchBar extends React.Component {
           
           {this.state.searched ? (
             this.state.questions.length > 0 ? (
-              <AllQuestions questionsSearch={this.state.questions} />
+              <AllQuestions />
             ) : (
               "No keywords found "
             )

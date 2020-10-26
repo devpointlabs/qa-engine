@@ -6,7 +6,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import SearchBar from './SearchBar';
 
 
-const AllQuestions = (props) => {
+const AllQuestions = () => {
   const { user } = useContext(AuthContext);
   const [ questions, setQuestions ] = useState([]);
 
@@ -28,10 +28,12 @@ const AllQuestions = (props) => {
     <div>
     <br />
     <br />
-    <SearchBar></SearchBar>
+    
     <h1>All Questions</h1>
     <br />
+    <SearchBar/>
         {questions.map((q) => (
+          
             <Card key={q.id}>
 
               <h3><CardHeader><Link to={{
