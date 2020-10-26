@@ -39,7 +39,6 @@ function ImageUploader(props) {
     <div>
 
 
-      
       <FilePond
         files={files}
         onupdatefiles={handleUpdate}

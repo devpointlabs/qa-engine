@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :answers do
       resources :comments
     end
+    
+
     get "all_questions", to: "questions#all_questions"
     #Search question keywords
     get "search_questions", to: "questions#search_questions"
@@ -36,6 +38,8 @@ Rails.application.routes.draw do
 
     put '/comment/:id/vote', to: 'comments#vote'
     get '/comment/:id/get_vote', to: 'comments#get_vote'
+
+    get '*other', to: 'static#index'
 
   end
 end
