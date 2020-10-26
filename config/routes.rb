@@ -20,6 +20,8 @@ Rails.application.routes.draw do
       resources :comments
     end
     get "all_questions", to: "questions#all_questions"
+    #Search question keywords
+    get "search_questions", to: "questions#search_questions"
     get "most_votes", to: "answers#most_votes"
     # post "/images/create/", to: "images#create"
     # get "/images", to: "images#index"
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
     put '/question/:id/vote', to: 'questions#vote'
     get '/question/:id/get_vote', to: 'questions#get_vote'
 
+    
     put '/answer/:id/vote', to: 'answers#vote'
     get '/answer/:id/get_vote', to: 'answers#get_vote'
 

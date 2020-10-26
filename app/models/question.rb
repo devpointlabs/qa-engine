@@ -3,8 +3,7 @@ class Question < ApplicationRecord
   belongs_to :user
   has_many :answers, dependent: :destroy
   # has_many :answers, :through => :users
-
-    def self.search_questions(title, body, first_name, last_name)
+  def self.search_questions(title, body, first_name, last_name)
     find_by_sql(["
     SELECT *
     FROM questions
