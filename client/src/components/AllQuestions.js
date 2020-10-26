@@ -3,11 +3,12 @@ import { Card, CardHeader, CardMeta } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { AuthContext } from "../providers/AuthProvider";
-
+import Upvote from "./Upvote";
 
 const AllQuestions = () => {
   const { user } = useContext(AuthContext);
   const [ questions, setQuestions ] = useState([]);
+  // const [question, setQuestion] = useState([]);
 
   useEffect(() => {
 
@@ -35,6 +36,7 @@ const AllQuestions = () => {
               pathname: `/questionView/${q.id}`,
               idProps: { question: {...q}}
               }}>{q.title}</Link></CardHeader></h3>
+               {/* <Upvote qId={question.id} upvote={question.upvote} question={question}></Upvote> */}
             <CardMeta>{q.body}</CardMeta>
             </Card>
         ))}

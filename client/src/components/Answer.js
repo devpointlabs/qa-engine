@@ -13,6 +13,8 @@ const Answer = (props) => {
   const [ show, setShow ] = useState(false); 
   const [ showC, setShowC ] = useState(false);
   const [answers, setAnswers] = useState([]);
+  const [answer, setAnswer] = useState([]);
+
 
   const addComments = (comment) => {
     setComments(...comments, comment);
@@ -50,17 +52,17 @@ const Answer = (props) => {
 
   const renderAnswers = () => {
     return(
-      <div>
+      <div key={answer.id}>
         <br />
 
         <p>User: {props.first_name}</p>
         <div onClick={() => { setShow(!show);
          }} dangerouslySetInnerHTML={{__html:props.body}}></div>
-
+        <AnswerUpvote aId={answer.id} upvote={answer.upvote} question={answer}></AnswerUpvote>
          {isUserMatching()}
          
         {show && <Comments {...comments} answerID={props.id} authUser={user} userID={props.user_id}/>}
-        {/* <div><AnswerUpvote aId={answer.id} upvote={answer.upvote} question={answer}></AnswerUpvote></div> */}
+        
       </div>
       
 

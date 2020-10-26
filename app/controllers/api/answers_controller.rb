@@ -45,7 +45,7 @@ class Api::AnswersController < ApplicationController
 
     def get_vote
     
-    render json: @question.votes_for.size 
+    render json: @answer.votes_for.size 
   end
   
   def vote

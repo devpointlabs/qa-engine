@@ -5,7 +5,8 @@ import { Card, CardHeader, Button } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 import Answer from "./Answer";
 import Comments from "./Comments";
-import Upvote from "./Upvote"
+import Upvote from "./Upvote";
+import AnswerUpvote from "./AnswerUpvote";
 
 
 
@@ -13,6 +14,7 @@ const Question = (props) => {
   const { user } = useContext(AuthContext);
   const [question, setQuestion] = useState([]);
   const [answers, setAnswers] = useState([]);
+  
   const [comments, setComments] = useState([]);
   const [show, setShow] = useState(false);
 
@@ -100,6 +102,7 @@ const Question = (props) => {
         <br />
         <Upvote qId={question.id} upvote={question.upvote} question={question}></Upvote>
         <br />
+        
         {answers.map((a) => (
         
           <Answer {...a} aID={a.id} user={user} deleteAnswer={deleteAnswer}/>
@@ -110,6 +113,8 @@ const Question = (props) => {
         ))}
         <h2></h2>
         <AnswerForm addAnswer={addAnswer}  questionID={question.id} user={user}/>
+        
+        
       </div>
     )
 }
