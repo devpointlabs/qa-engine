@@ -44,13 +44,14 @@ class Api::AnswersController < ApplicationController
   end
 
   def get_vote
-    render json: @answer.votes_for.size 
+    render json: @answer.upvote
   end
 
   def vote
     if current_user.voted_for? @answer
       # render json: {message: "already voted on"} 
       render json: @answer.votes_for.size
+      @answer.update(upvote: @answer.votes_for.size)
     else
     @answer.liked_by current_user
     # if @question.update(question_params)
@@ -67,6 +68,19 @@ class Api::AnswersController < ApplicationController
   def most_votes
     render json: Answer.highest_vote
   end
+
+  def top_votes
+    render json: Answer.top_gun
+  end
+
+  # def is_correct
+  #   if @answer.is_correct = nil
+  #     @answer.is_correct = true
+  #   elsif @answer.is_correct = false
+  #     @answer.is_correct = true
+  #   else 
+  #     @answer.is_correct = false
+  # end
 
   private
 
