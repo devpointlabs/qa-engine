@@ -88,11 +88,11 @@ const Question = (props) => {
     // }
 
 
-  //   const isUserMatching = () => { //For toggling is_correct if user is owner of question asked.
-  //   if (props.idProps.question.user_id === user.id ){
-  //    return <button variant="danger" onClick={() => props.deleteAnswer(props.aID)}>Delete Answer</button>;
-  //   }
-  // }
+    const isUserMatching = () => { //For toggling is_correct if user is owner of question asked.
+    if (props.idProps.question.user_id === user.id ){
+     return <button variant="danger" onClick={() => props.deleteAnswer(props.aID)}>Delete Answer</button>;
+    }
+  }
 
 
     

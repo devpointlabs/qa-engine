@@ -12,7 +12,7 @@ const QuestionForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addQuestion({body: body, title: title, first_name: user.first_name })
+    props.addQuestion({body: body, title: title, first_name: user.first_name, last_name: user.last_name, upvote: 0 })
   }
 
     const handleQuillChange = (html) => {
