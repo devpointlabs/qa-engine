@@ -26,14 +26,15 @@ const MyProfile = (props) => {
     //  )
 
     //  };
-   
+    function refreshPage() {
+      window.location.reload(false);
+    }
 
 
   return (
     <div>
       <h1>User Profile</h1>
-      <h3>First Name: {user.first_name}</h3>
-      <h3>Last Name: {user.last_name}</h3>
+      <h3>Name: {user.first_name} {user.last_name}</h3>
       <h3>Email: {user.email}</h3>
      
       <img src={user.image}/>
