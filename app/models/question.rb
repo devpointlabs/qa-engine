@@ -11,5 +11,4 @@ class Question < ApplicationRecord
     ORDER BY updated_at DESC
     ", "%#{title}%", "%#{body}%", "%#{first_name}%", "%#{last_name}%"])
   end
-
 end
