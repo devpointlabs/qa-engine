@@ -3,12 +3,14 @@ import { Card, CardHeader, CardMeta } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { AuthContext } from "../providers/AuthProvider";
+import Upvote from "./Upvote";
 import SearchBar from './SearchBar';
 
 
 const AllQuestions = (props) => {
   const { user } = useContext(AuthContext);
   const [ questions, setQuestions ] = useState([]);
+  // const [question, setQuestion] = useState([]);
 
   useEffect(() => {
 

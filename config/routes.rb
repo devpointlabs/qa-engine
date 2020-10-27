@@ -25,12 +25,20 @@ Rails.application.routes.draw do
     #Search question keywords
     get "search_questions", to: "questions#search_questions"
     get "most_votes", to: "answers#most_votes"
+    get "top_votes", to: "answers#top_votes"
     # post "/images/create/", to: "images#create"
     # get "/images", to: "images#index"
 
     # VOTES
     put '/question/:id/vote', to: 'questions#vote'
     get '/question/:id/get_vote', to: 'questions#get_vote'
+    
+    #ANSWER VOTES
+    put '/answer/:id/vote', to: 'answers#vote'
+    get '/answer/:id/get_vote', to: 'answers#get_vote'
+
+    #Search question keywords
+    get "search_questions", to: "questions#search_questions"
 
     
     put '/answer/:id/vote', to: 'answers#vote'
@@ -39,8 +47,8 @@ Rails.application.routes.draw do
     put '/comment/:id/vote', to: 'comments#vote'
     get '/comment/:id/get_vote', to: 'comments#get_vote'
 
-    get '*other', to: 'static#index'
 
+    get '*other', to: 'static#index'
   end
 end
 

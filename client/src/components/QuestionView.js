@@ -5,7 +5,8 @@ import { Card, CardHeader, Button } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 import Answer from "./Answer";
 import Comments from "./Comments";
-import Upvote from "./Upvote"
+import Upvote from "./Upvote";
+import AnswerUpvote from "./AnswerUpvote";
 
 
 
@@ -13,6 +14,7 @@ const Question = (props) => {
   const { user } = useContext(AuthContext);
   const [question, setQuestion] = useState([]);
   const [answers, setAnswers] = useState([]);
+  
   const [comments, setComments] = useState([]);
   const [show, setShow] = useState(false);
 
@@ -88,11 +90,11 @@ const Question = (props) => {
     // }
 
 
-  //   const isUserMatching = () => { //For toggling is_correct if user is owner of question asked.
-  //   if (props.idProps.question.user_id === user.id ){
-  //    return <button variant="danger" onClick={() => props.deleteAnswer(props.aID)}>Delete Answer</button>;
-  //   }
-  // }
+    const isUserMatching = () => { //For toggling is_correct if user is owner of question asked.
+    if (props.idProps.question.user_id === user.id ){
+     return <button variant="danger" onClick={() => props.deleteAnswer(props.aID)}>Delete Answer</button>;
+    }
+  }
 
 
     
@@ -105,6 +107,7 @@ const Question = (props) => {
         <br />
         <Upvote mString="question" mId={question.id} upvote={question.upvote} question={question}></Upvote>
         <br />
+        
         {answers.map((a) => (
         
           <div><Answer {...a} aID={a.id} user={user} deleteAnswer={deleteAnswer}/></div>
@@ -115,6 +118,8 @@ const Question = (props) => {
         ))}
         <h2></h2>
         <AnswerForm addAnswer={addAnswer}  questionID={question.id} user={user}/>
+        
+        
       </div>
     )
 }

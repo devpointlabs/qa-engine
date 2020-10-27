@@ -9,7 +9,7 @@ const AnswerForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addAnswer({body: body, question_id: props.questionID, user_id: props.user.id, first_name: props.user.first_name })
+    props.addAnswer({body: body, question_id: props.questionID, user_id: props.user.id, first_name: props.user.first_name, last_name: props.user.last_name, upvote: 0 })
     // Axios
     //   .post(`/api/questions/${questionID}/answers`, {body: body, question_id: questionID, user_id: user.id })
     //   .then((res) => {
