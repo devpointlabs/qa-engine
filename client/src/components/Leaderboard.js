@@ -20,7 +20,7 @@ const Leaderboard = () => {
       <div>
         <h4>User Name: {u.first_name} {u.last_name}</h4>
         <h5>Upvotes: {u.upvote}</h5>
-        <p>{u.body}</p>
+        <p dangerouslySetInnerHTML={{__html: u.body}}></p>
         <br />
       </div>
       
