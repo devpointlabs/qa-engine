@@ -1,18 +1,17 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { AuthContext } from "../providers/AuthProvider";
 
 
-const Leaderboard = () => {
-  const { user } = useContext(AuthContext);
+const HighestWeek = () => {
+
   const [ upvotes, setUpvotes ] = useState([]);
 
   const getLeaderboard = async () => {
       try {
-      let res = await Axios.get("/api/top_votes")
+      let res = await Axios.get("/api/most_votes")
       setUpvotes(res.data);
     } catch (error) {
-        alert("Failed to get Leaderboard results.");
+        alert("Failed to get this week's scores.");
     }
   }
 
@@ -20,13 +19,8 @@ const Leaderboard = () => {
     return upvotes.map((u) => (
       <div>
         <h4>User Name: {u.first_name} {u.last_name}</h4>
-<<<<<<< HEAD
         <h5>Upvotes: {u.upvote}</h5>
-        <p dangerouslySetInnerHTML={{__html: u.body}}></p>
-=======
-        <h5>Upvotes: {u.total_upvotes}</h5>
         <p>{u.body}</p>
->>>>>>> b4d8e4db70988ab96502be5e40dc43322068abbc
         <br />
       </div>
       
@@ -39,11 +33,11 @@ const Leaderboard = () => {
 
   return (
     <div>
-      <h1>Leaderboard</h1>
+      <h1>Best Answers This Week</h1>
         {renderLeaderboard()}
     </div>
   )
 
 }
 
-export default Leaderboard;
+export default HighestWeek;

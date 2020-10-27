@@ -43,14 +43,14 @@ class Api::QuestionsController < ApplicationController
   end
 
   def get_vote
-    
-    render json: @question.votes_for.size 
+    render json: @question.upvote
   end
   
   def vote
     if current_user.voted_for? @question
       # render json: {message: "already voted on"} 
       render json: @question.votes_for.size
+     @question.update(upvote: @question.votes_for.size)
     else
     @question.liked_by current_user
     # if @question.update(question_params)
