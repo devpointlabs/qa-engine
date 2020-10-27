@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     #Search question keywords
     get "search_questions", to: "questions#search_questions"
     get "most_votes", to: "answers#most_votes"
+    get "top_votes", to: "answers#top_votes"
     # post "/images/create/", to: "images#create"
     # get "/images", to: "images#index"
 

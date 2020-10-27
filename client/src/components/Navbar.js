@@ -42,12 +42,14 @@ const NavBar = () => {
       <Button color="" ><Link to="/">All Questions</Link></Button>
         {/* <span style={{ marginRight: "10px" }}></span>
         {user && <Link to="/thingsDemo">Things</Link>} */}
-        <span style={{ marginRight: "30px" }}></span>
+            <span style={{ marginRight: "30px" }}></span>
       {<Button class="ui button"> <Link to="/MyQuestions">My Questions</Link></Button>}
-      <span style={{ marginRight: "30px" }}></span>
+            <span style={{ marginRight: "30px" }}></span>
       {<Button class="ui button"> <Link to="/MyProfile">My Profile</Link></Button>}
             <span style={{ marginRight: "30px" }}></span>
       {<Button class="ui button"> <Link to="/leaderboard">Leaderboard</Link></Button>}
+            <span style={{ marginRight: "30px" }}></span>
+      {<Button class="ui button"> <Link to="/highestWeek">Top Weekly Answers</Link></Button>}
       </div>
       <div>{getRightNav()}</div>
     </div>
