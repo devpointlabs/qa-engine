@@ -15,7 +15,8 @@ const NavBar = () => {
   const getRightNav = () => {
     if (user) {
       return (
-        <>
+        
+        <div style={styles.navbar}>
           {/* part 2 what I am badly here Instant Bug */}
           <div
             onClick={() => handleLogout(history)}
@@ -23,7 +24,7 @@ const NavBar = () => {
           >
             logout!
           </div>
-        </>
+        </div>
       );
     } else {
       return (
