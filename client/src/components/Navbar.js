@@ -17,7 +17,10 @@ const NavBar = () => {
       return (
         <>
           <div>
-            <Image avatar src={user.image}/>{user.first_name}
+            <a href="/myprofile">
+            <Image avatar src={user.image}/>
+            </a>
+            {user.first_name}
             <div
             onClick={() => handleLogout(history)}
             style={{ color: "steelblue" }}
