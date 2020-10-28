@@ -12,8 +12,9 @@ import QuestionForm from "./components/QuestionForm";
 import QuestionView from "./components/QuestionView";
 import Answer from "./components/Answer";
 import AnswerForm from "./components/AnswerForm";
-import Upvote from "./components/Upvote"
-import AskQuestion from './components/AskQuestion'
+import Upvote from "./components/Upvote";
+import AskQuestion from './components/AskQuestion';
+import LandingPage from './components/LandingPage';
 
 import MyProfile from "./components/MyProfile";
 
@@ -33,14 +34,15 @@ function App() {
       <Container>
         <FetchUser>
           <Switch>
-            <Route exact path="/" component={AllQuestions} />
+            <Route exact path="/" component={LandingPage} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/questionView/:id" component={QuestionView} />
-            <Route exact path="/upvote" component={Upvote} />
-            <Route exact path="/AskQuestion" component={AskQuestion} />
-            <Route exact path="/leaderboard" component={Leaderboard} />
-            <Route exact path="/highestWeek" component={HighestWeek} />
+            <ProtecedRoute exact path="/questionView/:id" component={QuestionView} />
+            <ProtecedRoute exact path="/upvote" component={Upvote} />
+            <ProtecedRoute exact path="/AskQuestion" component={AskQuestion} />
+            <ProtecedRoute exact path="/leaderboard" component={Leaderboard} />
+            <ProtecedRoute exact path="/highestWeek" component={HighestWeek} />
+            <ProtecedRoute exact path="/AllQuestions" component={AllQuestions} />
             <ProtecedRoute exact path="/MyQuestions" component={MyQuestions} />
             <ProtecedRoute exact path="/questions/new" component={QuestionForm} />
             <ProtecedRoute exact path="/myprofile" component={MyProfile}/>
