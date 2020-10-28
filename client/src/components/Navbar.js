@@ -39,7 +39,7 @@ const NavBar = () => {
   return (
     <div style={styles.navbar}>
       <div >
-      <Button color="" ><Link to="/">All Questions</Link></Button>
+      <Button color="" ><Link to="/AllQuestions">All Questions</Link></Button>
         {/* <span style={{ marginRight: "10px" }}></span>
         {user && <Link to="/thingsDemo">Things</Link>} */}
             <span style={{ marginRight: "30px" }}></span>
