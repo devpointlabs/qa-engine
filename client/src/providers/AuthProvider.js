@@ -46,7 +46,7 @@ const AuthProvider = (props) => {
       setAuthErrors(null);
       let res = await axios.post("api/auth/sign_in", user);
       setUser(res.data.data);
-      history.push("/");
+      history.push("/AllQuestions");
     } catch (err) {
       setAuthErrors(err.response.data.errors);
       // you can't be sure what this will look like
@@ -71,7 +71,7 @@ const AuthProvider = (props) => {
       // await block until done
       let res = await axios.delete("/api/auth/sign_out");
       setUser(null);
-      history.push("/login");
+      history.push("/");
     } catch (err) {
       debugger;
     }
