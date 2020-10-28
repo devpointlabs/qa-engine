@@ -87,7 +87,6 @@ const AuthProvider = (props) => {
         handleRegister,
         handleLogout,
         handleLogin,
-        tacos: "awesome",
       }}
     >
       {/* nested stuff going here */}

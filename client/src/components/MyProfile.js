@@ -4,6 +4,7 @@ import QuestionForm from "./QuestionForm";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import ImageUploader from '../images/ImageUploader';
+import { Card, Icon, Image } from 'semantic-ui-react'
 
 const MyProfile = (props) => {
   
@@ -18,35 +19,37 @@ const MyProfile = (props) => {
   
     }, []); 
 
-    // const displayImage = () => {
-    //  return (
-    //    <div>
-    //      <img src={user.image}/>
-    //    </div>
-    //  )
-
-    //  };
-   
+  
+    function refreshPage() {
+      window.location.reload(false);
+    }
 
 
   return (
-    <div>
-      <h1>User Profile</h1>
-      <h3>First Name: {user.first_name}</h3>
-      <h3>Last Name: {user.last_name}</h3>
-      <h3>Email: {user.email}</h3>
-     
-      <img src={user.image}/>
-      <button>Edit Info</button>
-      
-      {/* {displayImage()} */}
-      <br/>
-      <br/>
-      <br/>
-      Add or update current photo
-      <ImageUploader userID={user.id}/>
-      
-    </div>
+    <Card 
+      style={{
+        width: "350px",
+        marginLeft: "-50px",
+      }}
+    >
+      <Image src={user.image}/>
+      <Card.Content textAlign="center">
+        <h1>My Profile</h1>
+          <h2>Name: {user.first_name} {user.last_name}</h2>
+          <h2>Email: {user.email}</h2>
+        
+          
+          <button>Edit Info</button>
+          
+         
+          <br/>
+          <br/>
+          <br/>
+          Add or update current photo
+          <ImageUploader userID={user.id}/>
+        
+      </Card.Content>
+    </Card>
   );
 };
 
