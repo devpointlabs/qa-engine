@@ -28,6 +28,7 @@ function ImageUploader(props) {
       let data = new FormData();
       data.append("file", fileItems[0].file);
       const res = await Axios.put(`/api/users/${props.userID}`, data);
+      window.location.reload(false);//forces page to render again after new image upload
       console.log(res.data);
     } catch (err) {
       console.log(err.response); //err.response from axios

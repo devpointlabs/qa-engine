@@ -29,15 +29,17 @@ const MyProfile = (props) => {
     <Card 
       style={{
         width: "350px",
-        marginLeft: "-50px",
+        left: "20px",
+        position: "fixed",
+        fontFamily: "Roboto",
       }}
     >
       <Image src={user.image}/>
       <Card.Content textAlign="center">
-        <h1>My Profile</h1>
+        <h1 style={{}}>My Profile</h1>
           <h2>Name: {user.first_name} {user.last_name}</h2>
           <h2>Email: {user.email}</h2>
-        
+          <h2>Cohort: {user.cohort}</h2>
           
           <button>Edit Info</button>
           
@@ -45,7 +47,7 @@ const MyProfile = (props) => {
           <br/>
           <br/>
           <br/>
-          Add or update current photo
+          Add or update current photo (page will refresh)
           <ImageUploader userID={user.id}/>
         
       </Card.Content>

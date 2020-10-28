@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import {Button} from "semantic-ui-react";
+import {Button,Image} from "semantic-ui-react";
 import styled from "styled-components";
 // For Basic setup only please change
 
@@ -16,12 +16,14 @@ const NavBar = () => {
     if (user) {
       return (
         <>
-          {/* part 2 what I am badly here Instant Bug */}
-          <div
+          <div>
+            <Image avatar src={user.image}/>{user.first_name}
+            <div
             onClick={() => handleLogout(history)}
             style={{ color: "steelblue" }}
-          >
+            >
             logout!
+            </div>
           </div>
         </>
       );
