@@ -20,13 +20,8 @@ const Leaderboard = () => {
     return upvotes.map((u) => (
       <div>
         <h4>User Name: {u.first_name} {u.last_name}</h4>
-<<<<<<< HEAD
-        <h5>Upvotes: {u.upvote}</h5>
-        <p dangerouslySetInnerHTML={{__html: u.body}}></p>
-=======
         <h5>Upvotes: {u.total_upvotes}</h5>
-        <p>{u.body}</p>
->>>>>>> b4d8e4db70988ab96502be5e40dc43322068abbc
+        <p dangerouslySetInnerHTML={{__html: u.body}}></p>
         <br />
       </div>
       
