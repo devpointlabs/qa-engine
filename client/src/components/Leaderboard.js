@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import Axios from "axios";
 import { AuthContext } from "../providers/AuthProvider";
+import {Card} from "semantic-ui-react";
 
 
 const Leaderboard = () => {
@@ -18,13 +19,16 @@ const Leaderboard = () => {
 
   const renderLeaderboard = () => {
     return upvotes.map((u) => (
-      <div>
+      <Card.Group>
+        <Card fluid color='red' header='Option 1'>
         <h1>Leaderboard</h1>
+        
         <h4>User Name: {u.first_name} {u.last_name}</h4>
         <h5>Upvotes: {u.total_upvotes}</h5>
         <p dangerouslySetInnerHTML={{__html: u.body}}></p>
         <br />
-      </div>
+        </Card>
+      </Card.Group>
       
     ));
   };
