@@ -14,12 +14,15 @@ class Answer < ApplicationRecord
     .order("upvote desc limit 8")
   end
 
-# SELECT user_id, SUM(upvote) as Total_upvotes FROM answers
+# SELECT user_id, MAX(u.first_name) AS fn, MAX(u.last_name) AS ln, SUM(upvote) AS Total_upvotes 
+# from answers AS a
+# INNER JOIN users AS u on u.id = user_id
 # GROUP BY user_id
 # ORDER BY Total_upvotes desc limit 5
 
   def self.top_gun
-    select("user_id, MAX(first_name) AS first_name, MAX(last_name) as last_name, SUM(upvote) as Total_upvotes")
+    select("user_id, MAX(u.first_name) AS first_name, MAX(u.last_name) AS last_name, SUM(upvote) AS Total_upvotes")
+    .joins("INNER JOIN users AS u on u.id = user_id")
     .group("user_id")
     .order("Total_upvotes desc limit 5")
   end

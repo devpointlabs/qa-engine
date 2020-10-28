@@ -48,7 +48,7 @@ Rails.application.routes.draw do
     get '/comment/:id/get_vote', to: 'comments#get_vote'
 
 
-    get '*other', to: 'static#index'
   end
+  get '*other', to: 'static#index'
 end
 
