@@ -66,6 +66,8 @@ const NavBar = () => {
   return (
     <div style={styles.navbar}>
       <div >
+      <Image avatar src='https://res.cloudinary.com/dbbgin0ik/image/upload/v1604012082/image.png.png' size='tiny' circular />
+      <span style={{ marginRight: "30px" }}></span>
       {user && <Button color='vk' onClick={allQuestions} block style={{color: "white",}}>All Questions</Button>}
             <span style={{ marginRight: "30px" }}></span>
        {user && <Button color='vk' onClick={myQuestions} block style={{color: "white",}}>My Questions</Button>}
