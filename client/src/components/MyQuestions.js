@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import QuestionForm from "./QuestionForm";
 import { Link } from "react-router-dom";
-import { Card, CardDescription, CardHeader, CardMeta, Table, Button} from 'semantic-ui-react';
+import { Card, CardDescription, CardHeader, CardMeta, Table, Button, Container, Icon} from 'semantic-ui-react';
 import { AuthContext } from "../providers/AuthProvider";
 import Leaderboard from "./Leaderboard";
 
@@ -74,35 +74,30 @@ const MyQuestions = (props) => {
 
   return (
     <>
-      <div>
-        <br />
-        <br />
-        <Link to={{pathname: '/AskQuestion'}}>Add a Question</Link>
-        <br />
-        <br />
-        <br />
-           <br />
-        <br />
+      <Button>
+          <Link to={{pathname: '/AskQuestion'}}>Add a Question</Link>
+      </Button>
+      <div style={{display:"flex"}}>
         {questions.map((q) => (
-          <div>
-            <Card key={q.id}>
-              <Card.Header><Link to={{
-              pathname: `/questionView/${q.id}`,
-              idProps: { question: {...q}}
-              }}>{q.title}</Link>
-              </Card.Header>
-                <CardDescription>from: {q.first_name}</CardDescription>
-                <CardMeta dangerouslySetInnerHTML={{__html: q.body}}></CardMeta>
-              <Button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</Button>
-            </Card>
-            
-          </div>
-          
+        
+        <div style={{display:"flex", flexDirection:"column"}}>
+          <Link to={{
+            pathname: `/questionView/${q.id}`,
+            idProps: { question: {...q}}
+            }}>
+          <Card key={q.id} >
+            <Card.Content><h2>{q.title}</h2>
+            </Card.Content>
+              <CardDescription>from: {q.first_name}</CardDescription>
+              <CardMeta dangerouslySetInnerHTML={{__html: q.body}}></CardMeta>
+            <Button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</Button>
+          </Card></Link>
+        </div>
         ))}
-        <Table style={{margin:"10px"}}>
+        <div style={{margin:"0px", width: "500px"}}>
           <Leaderboard/>
-        </Table>
-      </div>
+        </div>
+      </div> 
     </>
   );
 };

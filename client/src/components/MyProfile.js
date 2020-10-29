@@ -29,11 +29,11 @@ const MyProfile = (props) => {
 
   return (
     <>
-    
+    <br/>
     <Container style={{display: "flex", justifyContent: "space-between"}}>
       <Card 
         style={{
-          width: "500px",
+          width: "350px",
           // left: "20px",
           margin:"10px",
           fontFamily: "Roboto",
@@ -57,9 +57,9 @@ const MyProfile = (props) => {
           
           </Card.Content>
         </Card>
-        <Table style={{margin:"10px"}}>
+        <div style={{margin:"10px", width: "500px"}}>
           <Leaderboard/>
-        </Table>
+        </div>
         
       </Container>
       

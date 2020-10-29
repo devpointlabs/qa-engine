@@ -22,7 +22,7 @@ const NavBar = () => {
             <a href="/myprofile">
             <Image avatar src={user.image}/>
             </a>
-            <Button onClick={() => handleLogout(history)} class="ui button navbarButton">Logout!</Button>
+            <Button size="mini" onClick={() => handleLogout(history)} class="ui button navbarButton">Logout!</Button>
             </div>
           </div>
         </>
