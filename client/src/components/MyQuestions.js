@@ -109,8 +109,10 @@ const MyQuestions = (props) => {
                   <p dangerouslySetInnerHTML={{__html: q.body}}></p>
                 </Card.Header>
                 <br/>
-                <Upvote/>
-                  <Button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</Button>
+                <div style={{display:"flex"}}>
+                <Upvote mString="question" mId={q.id} upvote={q.upvote} question={q}></Upvote>
+                <Button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</Button>
+                </div>
               </Card>
             </Link>
           ))}

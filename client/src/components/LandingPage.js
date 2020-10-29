@@ -21,35 +21,44 @@ const LandingPage = () => {
   <div style={styles.landing}>
     <div style={styles.wrapper}>
       <div style={styles.container}>
-        
+      <div style={styles.buttonRow}>
         <img src={`https://res.cloudinary.com/dbbgin0ik/image/upload/v1603873823/Slack_Overflow_1x_wg7u1m.png`}/>
-        <Button color='vk' textAlign="center" onClick={login} variant="info" block style={{color: "white",}}>Login</Button>
-        <Button color='vk' textAlign="center" onClick={register} variant="success" block style={{color: "white",}}>Sign Up</Button>
-        
-      <br/>
-      <br/>
+        </div>
         <div>
         <Grid divided='vertically'>
+        <Grid.Row columns={2}>
+      <Grid.Column>
+      <div style={styles.buttonRow}>
+      <Button color='vk' textAlign="center" onClick={login} variant="info" block style={{color: "white",}}>Login</Button>
+      </div>
+      </Grid.Column>
+      <Grid.Column>
+      <div style={styles.buttonRow}>
+      <Button color='vk' textAlign="center" onClick={register} variant="success" block style={{color: "white",}}>Sign Up</Button>
+      </div>
+      </Grid.Column>
+    </Grid.Row>
+
         <Grid.Row columns={3}>
-      <Grid.Column>
-      <div textAlign="center">
-          <Icon name='check circle outline' size='big' />
+      <Grid.Column textAlign="center">
+          <div>
+          <Icon name='check circle outline' color='blue' size='big' />
           <h2>Ask Questions</h2>
-          <h4>I am helping</h4>
+          <h4>Learn how to ask questions in an open online format</h4>
           </div>
       </Grid.Column>
-      <Grid.Column>
-      <div textAlign="center">
-          <Icon name='check circle outline' size='big' />
+      <Grid.Column textAlign="center">
+      <div>
+          <Icon name='check circle outline' color='blue' size='big' />
           <h2>Solve Problems</h2>
-          <h4>HElp</h4>
+          <h4>Earn points for helping your peers</h4>
           </div>
       </Grid.Column>
-      <Grid.Column>
-          <div textAlign="center">
-          <Icon name='check circle outline' size='big' />
-          <h2>Rate Answers</h2>
-          <h4>grrrrr</h4>
+      <Grid.Column textAlign="center">
+          <div >
+          <Icon name='check circle outline' color='blue' size='big' />
+          <h2>Get on the Leaderboard</h2>
+          <h4>Earn prizes for having answers with the most likes</h4>
           </div>
       </Grid.Column>
     </Grid.Row>
@@ -87,6 +96,11 @@ const styles = {
     
    
   },
+  buttonRow:{
+    display:"flex",
+    justifyContent:"center",
+    width:"100%"
+  }
 
 
 };
