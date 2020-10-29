@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
+import { Button, Icon, Label } from 'semantic-ui-react'
 
 
-const Button = ({ increment, onClick }) => {
 
-  const handleClick = () => {
-    // debugger
-    onClick(increment)
-  }
-  return <button onClick={handleClick}>+{increment}</button>
-}
 
 const Upvote = (props) => {
 
+  const [count, setCount] = useState()
 
     //hand the id from 
     //Alter number-- 
@@ -34,7 +29,7 @@ const Upvote = (props) => {
     // setCount(props.upvote)
   }, [])
   
-  const [count, setCount] = useState()
+  
   
   const incrementCount = increment => {
     // debugger
@@ -64,13 +59,40 @@ const Upvote = (props) => {
     //   });
   };
 
+  const LikeButton = ({ increment, onClick}) => {
+
+  
+ 
+    const handleClick = () => {
+      // debugger
+      onClick(increment)
+    }
+    
+    return(
+      <div>
+      <Button onClick={handleClick} as='div' labelPosition='right'>
+        <Button color='red'>
+          <Icon name='heart' />
+          Like
+        </Button>
+        <Label as='a' basic color='red' pointing='left'>
+       {count}
+        </Label>
+      </Button>
+      </div>
+      )
+    // return <button onClick={handleClick}>+{increment}</button>
+  }
+
   return (
     <div>
-      <Button increment={1} onClick={incrementCount} />
-      {count}
+      <LikeButton increment={1} onClick={incrementCount}>{count}</LikeButton>
+      
     </div>
   )
 }
+
+
 
 
 

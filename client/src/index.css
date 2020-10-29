@@ -1,13 +1,65 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+font-family: 'Roboto', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  font-family: 'Roboto', sans-serif !important;
+}
+h2 {
+  font-family: 'Roboto', sans-serif !important;
+}
+h3 {
+  font-family: 'Roboto', sans-serif !important;
+}
+h4 {
+  font-family: 'Roboto', sans-serif !important;
+}
+h5 {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+body {
+font-family: 'Roboto', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.heading {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.ui.fluid.card {
+    width: 100%;
+    max-width: 9999px;
+    padding: 10px;
+    border-radius: 0%;
+}
+
+.ui.cards {
+    width: 100%;
+    max-width: 9999px;
+    border-radius: 0%;
+}
+
+.ui.tables {
+    font-size: 1em;
+    border-radius: 0;
+}
+
+.ui.cards>.card {
+    font-size: 1em;
+    border-radius: 0%;
 }

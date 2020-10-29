@@ -17,12 +17,19 @@ const NavBar = () => {
     if (user) {
       return (
         <>
-          <div>
-            <div>
-            <a href="/myprofile">
+          <div style={styles.navbar}>
+            <div href="/myprofile">
+            
             <Image avatar src={user.image}/>
-            </a>
-            <Button onClick={() => handleLogout(history)} class="ui button navbarButton">Logout!</Button>
+            
+          {user.first_name}
+            </div>
+            
+            <div
+            onClick={() => handleLogout(history)}
+            style={{ color: "red" }}
+            >
+            <Button class="ui button navbarButton">logout!</Button>
             </div>
           </div>
         </>
