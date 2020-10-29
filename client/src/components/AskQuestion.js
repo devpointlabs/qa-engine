@@ -16,7 +16,7 @@ const AskQuestion = () => {
       .catch((err) =>{
         alert("Something went wrong");
       });
-      window.location.href="/"
+      window.location.href="/MyQuestions"
     };
     
     

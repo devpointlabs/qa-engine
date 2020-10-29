@@ -17,16 +17,11 @@ const NavBar = () => {
       return (
         <>
           <div>
+            <div>
             <a href="/myprofile">
             <Image avatar src={user.image}/>
             </a>
-            {user.first_name}
-            
-            <div
-            onClick={() => handleLogout(history)}
-            style={{ color: "steelblue" }}
-            >
-            logout!
+            <Button onClick={() => handleLogout(history)} class="ui button navbarButton">Logout!</Button>
             </div>
           </div>
         </>
@@ -83,5 +78,8 @@ const styles = {
     textColor: "white",
   }
 };
+
+
+
 
 export default NavBar;
