@@ -79,10 +79,6 @@ const NavBar = () => {
       {user && <Button color='vk' onClick={myQuestions} block style={{color: "white",}}>My Questions</Button>}
             <span style={{ marginRight: "30px" }}></span>
       {user && <Button color='vk' onClick={myProfile} block style={{color: "white",}}>My Profile</Button>}
-            <span style={{ marginRight: "30px" }}></span>
-      {user && <Button color='vk' onClick={leaderboard} block style={{color: "white",}}>Leaderboard</Button>}
-            <span style={{ marginRight: "30px" }}></span>
-      {user && <Button color='vk' onClick={highestWeek} block style={{color: "white",}}>Top Weekly Answers</Button>}
       </div>
       <div>{getRightNav()}</div>
     </div>
