@@ -15,6 +15,7 @@ import AnswerForm from "./components/AnswerForm";
 import Upvote from "./components/Upvote";
 import AskQuestion from './components/AskQuestion';
 import LandingPage from './components/LandingPage';
+import SearchPage from './components/SearchPage';
 
 import MyProfile from "./components/MyProfile";
 
@@ -46,6 +47,7 @@ function App() {
             <ProtecedRoute exact path="/MyQuestions" component={MyQuestions} />
             <ProtecedRoute exact path="/questions/new" component={QuestionForm} />
             <ProtecedRoute exact path="/myprofile" component={MyProfile}/>
+            <ProtecedRoute exact path="/SearchPage" component={SearchPage}/>
             {/* <ProtecedRoute exact path="/user" component={User} /> */}
           </Switch>
         </FetchUser>

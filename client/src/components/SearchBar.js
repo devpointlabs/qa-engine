@@ -11,6 +11,7 @@ class SearchBar extends React.Component {
     axios.get(`/api/search_questions?search=${search}`).then((res) => {
       this.setState({ questions: res.data });
       this.setState({ searched: true });
+      window.location.href="/SearchPage"
     });
   };
   handleSearchChange = (e, { name, value }) => {
