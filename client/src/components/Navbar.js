@@ -1,13 +1,8 @@
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-<<<<<<< HEAD
-import {Button,Image, Search} from "semantic-ui-react";
-import SearchBar from './SearchBar';
-=======
 import {Button,Image} from "semantic-ui-react";
 import "../App.css";
->>>>>>> 8f81226f86d6588327fb935ed6babfd468dac74f
 import styled from "styled-components";
 // For Basic setup only please change
 
