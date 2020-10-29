@@ -2,9 +2,11 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import QuestionForm from "./QuestionForm";
 import { Link } from "react-router-dom";
-import { Card, CardDescription, CardHeader, CardMeta, Table, Button, Container, Icon} from 'semantic-ui-react';
+import { Card, CardDescription, CardHeader, CardMeta, Table, Button, Container, Icon, Grid} from 'semantic-ui-react';
 import { AuthContext } from "../providers/AuthProvider";
 import Leaderboard from "./Leaderboard";
+import HighestWeek from './HighestWeek';
+import Upvote from "./Upvote";
 
 const MyQuestions = (props) => {
   const { user } = useContext(AuthContext);
@@ -74,36 +76,49 @@ const MyQuestions = (props) => {
 
   return (
     <>
-      <Button>
-          <Link to={{pathname: '/AskQuestion'}}>Add a Question</Link>
-      </Button>
-      <div style={{display:"flex"}}>
-        {questions.map((q) => (
-        
-        <div style={{display:"flex", flexDirection:"column"}}>
-          <Link to={{
-            pathname: `/questionView/${q.id}`,
-            idProps: { question: {...q}}
-            }}>
-          <Card key={q.id} >
-            <Card.Content><h2>{q.title}</h2>
-            </Card.Content>
-              <CardDescription>from: {q.first_name}</CardDescription>
-              <CardMeta dangerouslySetInnerHTML={{__html: q.body}}></CardMeta>
-            <Button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</Button>
-          </Card></Link>
-        </div>
-        ))}
-        <div style={{margin:"0px", width: "500px"}}>
-          <Leaderboard/>
-        </div>
-      </div> 
+      <Grid>
+
+        <Grid.Column width={5}>
+              <Grid.Row>
+              <Leaderboard />
+              <br />
+              <br />
+              </Grid.Row>
+              <Grid.Row>
+              <HighestWeek />
+              </Grid.Row>
+        </Grid.Column>
+        <Grid.Column width={11}>
+        <h1>Submitted Questions:</h1>
+        <br/>
+        <Button>
+          <Link to={{pathname: '/AskQuestion'}}>New Question</Link>
+        </Button>
+        <br/>
+        <br/>
+          {questions.map((q) => (
+            <Link to={{
+              pathname: `/questionView/${q.id}`,
+              idProps: { question: {...q}}
+              }}>
+              <Card fluid key={q.id} >
+                <Card.Header>
+                  <h1>Question</h1>
+                  <h4>User: {user.first_name}</h4>
+                  <h2>{q.title}</h2>
+                  <p dangerouslySetInnerHTML={{__html: q.body}}></p>
+                </Card.Header>
+                <br/>
+                <Upvote/>
+                  <Button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</Button>
+              </Card>
+            </Link>
+          ))}
+          
+        </Grid.Column>
+      </Grid>
     </>
   );
 };
 
 export default MyQuestions;
-
-          // array.forEach(element => {
-            
-          // });

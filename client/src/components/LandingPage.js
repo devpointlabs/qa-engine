@@ -23,8 +23,8 @@ const LandingPage = () => {
       <div style={styles.container}>
         
         <img src={`https://res.cloudinary.com/dbbgin0ik/image/upload/v1603873823/Slack_Overflow_1x_wg7u1m.png`}/>
-        <Button onClick={login} variant="info" block style={{color: "white",}}>Login</Button>
-        <Button onClick={register} variant="success" block style={{color: "white",}}>Sign Up</Button>
+        <Button color='vk' textAlign="center" onClick={login} variant="info" block style={{color: "white",}}>Login</Button>
+        <Button color='vk' textAlign="center" onClick={register} variant="success" block style={{color: "white",}}>Sign Up</Button>
         
       </div>
     </div>

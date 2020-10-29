@@ -22,9 +22,7 @@ const MyProfile = (props) => {
     }, []); 
 
   
-    function refreshPage() {
-      window.location.reload(false);
-    }
+
 
 
   return (
