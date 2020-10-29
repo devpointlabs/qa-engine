@@ -5,6 +5,7 @@ import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 import { AuthContext } from "../providers/AuthProvider";
 import Upvote from "./Upvote";
+import { Card } from "semantic-ui-react";
 
 
 const Answer = (props) => {
@@ -53,13 +54,17 @@ const Answer = (props) => {
   const renderAnswers = () => {
     return(
       <div key={answer.id}>
-        <br />
-
         <p>User: {props.first_name}</p>
         <div onClick={() => { setShow(!show);
-         }} dangerouslySetInnerHTML={{__html:props.body}}></div><Upvote mString="answer" mId={props.id} upvote={props.upvote} answer={props} />
+         }} dangerouslySetInnerHTML={{__html:props.body}}></div>
+<br /><Upvote mString="answer" mId={props.id} upvote={props.upvote} answer={props} /><br /><button onClick={() => { setShow(!show)}}>Show Comments</button><br />
+         <br />
          {isUserMatching()}
-        {show && <Comments {...comments} answerID={props.id} authUser={user} userID={props.user_id}/>}
+        {show && 
+         <Card fluid>
+          <Comments {...comments} answerID={props.id} authUser={user} userID={props.user_id}/>
+         </Card> 
+          }
         
       </div>
       
