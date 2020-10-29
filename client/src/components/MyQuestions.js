@@ -2,8 +2,9 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import QuestionForm from "./QuestionForm";
 import { Link } from "react-router-dom";
-import { Card, CardDescription, CardHeader, CardMeta } from 'semantic-ui-react';
+import { Card, CardDescription, CardHeader, CardMeta, Table, Button} from 'semantic-ui-react';
 import { AuthContext } from "../providers/AuthProvider";
+import Leaderboard from "./Leaderboard";
 
 const MyQuestions = (props) => {
   const { user } = useContext(AuthContext);
@@ -61,7 +62,10 @@ const MyQuestions = (props) => {
   
 
   const deleteQuestion = (id) => {
-    axios.delete(`/api/questions/${id}`, {params:{id:id}}).then(res => {
+    axios
+      .delete(`/api/questions/${id}`, {params:{id:id}})
+      .then(res => {
+      // window.confirm();
       console.log(res);
 
       setQuestions(questions.filter((question) => question.id !== id));
@@ -82,15 +86,22 @@ const MyQuestions = (props) => {
         {questions.map((q) => (
           <div>
             <Card key={q.id}>
-              <h3><CardHeader><Link to={{
+              <Card.Header><Link to={{
               pathname: `/questionView/${q.id}`,
               idProps: { question: {...q}}
-              }}>{q.title}</Link></CardHeader></h3><CardDescription>from: {q.first_name}</CardDescription>
-            <CardMeta dangerouslySetInnerHTML={{__html: q.body}}></CardMeta>
+              }}>{q.title}</Link>
+              </Card.Header>
+                <CardDescription>from: {q.first_name}</CardDescription>
+                <CardMeta dangerouslySetInnerHTML={{__html: q.body}}></CardMeta>
+              <Button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</Button>
             </Card>
-            <button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</button>
-            </div>
+            
+          </div>
+          
         ))}
+        <Table style={{margin:"10px"}}>
+          <Leaderboard/>
+        </Table>
       </div>
     </>
   );
