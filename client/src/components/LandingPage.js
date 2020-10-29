@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import {Button, Container} from "semantic-ui-react";
+import {Button, Container, Icon} from "semantic-ui-react";
 
 const LandingPage = () => {
   const history = useHistory();
@@ -26,6 +26,25 @@ const LandingPage = () => {
         <Button color='vk' textAlign="center" onClick={login} variant="info" block style={{color: "white",}}>Login</Button>
         <Button color='vk' textAlign="center" onClick={register} variant="success" block style={{color: "white",}}>Sign Up</Button>
         
+      <br/>
+        <div>
+          <div>
+          <Icon name='check circle outline' size='big' />
+          <h2>Ask Questions</h2>
+          <h4>I am helping</h4>
+          </div>
+          <div>
+          <Icon name='check circle outline' size='big' />
+          <h2>Solve Problems</h2>
+          <h4>HElp</h4>
+          </div>
+          <div>
+          <Icon name='check circle outline' size='big' />
+          <h2>Rate Answers</h2>
+          <h4>grrrrr</h4>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
