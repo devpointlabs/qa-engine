@@ -43,13 +43,14 @@ const NavBar = () => {
     if (user) {
       return (
         <>
-          <div>
-            <a href="/myprofile">
+          <div style={styles.navbar}>
+            <div href="/myprofile">
+            
             <Image avatar src={user.image}/>
-            </a>
-            <h2>
-            {user.first_name}
-            </h2>
+            
+          {user.first_name}
+            </div>
+            
             <div
             onClick={() => handleLogout(history)}
             style={{ color: "red" }}
