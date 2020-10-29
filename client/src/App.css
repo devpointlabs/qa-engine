@@ -6,3 +6,6 @@ pre{
  background-color: #FFFFFF;
 }
 
+#bodyid.navbarButton{
+  color: red;
+}

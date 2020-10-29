@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import {Button,Image} from "semantic-ui-react";
+import "../App.css";
 import styled from "styled-components";
 // For Basic setup only please change
 
@@ -20,12 +21,14 @@ const NavBar = () => {
             <a href="/myprofile">
             <Image avatar src={user.image}/>
             </a>
-            
+            <h2>
+            {user.first_name}
+            </h2>
             <div
             onClick={() => handleLogout(history)}
-            style={{ color: "steelblue" }}
+            style={{ color: "red" }}
             >
-            logout!
+            <Button class="ui button navbarButton">logout!</Button>
             </div>
           </div>
         </>
@@ -48,13 +51,13 @@ const NavBar = () => {
         {/* <span style={{ marginRight: "10px" }}></span>
         {user && <Link to="/thingsDemo">Things</Link>} */}
             <span style={{ marginRight: "30px" }}></span>
-      {<Button class="ui button"> <Link to="/MyQuestions">My Questions</Link></Button>}
+      {user && <Button color={{color: '#FFFFFF'}}> <Button.Content style={{color: '#F1F2F3'}}><Link to="/MyQuestions">My Questions</Link></Button.Content> </Button>}
             <span style={{ marginRight: "30px" }}></span>
-      {<Button class="ui button"> <Link to="/MyProfile">My Profile</Link></Button>}
+      {user && <Button color='vk'> <Link to="/MyProfile">My Profile</Link></Button>}
             <span style={{ marginRight: "30px" }}></span>
-      {<Button class="ui button"> <Link to="/leaderboard">Leaderboard</Link></Button>}
+      {user && <Button class="ui button"> <Link to="/leaderboard">Leaderboard</Link></Button>}
             <span style={{ marginRight: "30px" }}></span>
-      {<Button class="ui button"> <Link to="/highestWeek">Top Weekly Answers</Link></Button>}
+      {user && <Button class="ui button"> <Link to="/highestWeek">Top Weekly Answers</Link></Button>}
       </div>
       <div>{getRightNav()}</div>
     </div>
@@ -75,12 +78,12 @@ const styles = {
     border: "1px solid #979797",
     boxShadow: "0 2px 4px 0 rgba(0,0,0,0.5)",
     margin: "10px",
+    textColor: "white",
   },
 
-  Button: {
-    ButtonColor: "black",
-    textColor: "white",
-  }
 };
+
+
+
 
 export default NavBar;

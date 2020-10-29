@@ -21,7 +21,7 @@ const AuthProvider = (props) => {
       // this is good if you need some thing from this call below
       // bad if you don't
       // axios calls return a promise so use await
-      let resw = await axios.get("https://reqres.in/api/users?delay=2");
+      // let resw = await axios.get("https://reqres.in/api/users?delay=2");
       console.log("now registering");
       let res = await axios.post("/api/auth", user);
       console.log(res);
@@ -29,7 +29,7 @@ const AuthProvider = (props) => {
       // res.data you really don't know for when it someone else api call, so inspect res or look at documentation
       // you don't know what this looks like
       setUser(res.data.data);
-      history.push("/");
+      history.push("/AllQuestions");
     } catch (err) {
       // redo error handling
       // err.response.data.errors.full_messages is an array
