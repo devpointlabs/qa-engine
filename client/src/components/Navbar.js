@@ -2,43 +2,35 @@ import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import {Button,Image} from "semantic-ui-react";
+import SearchBar from './SearchBar';
 import "../App.css";
 import styled from "styled-components";
 // For Basic setup only please change
-
 // if not logged in I want register/login links
-
 // if logged in I want logout link, also ProtectRoutes Rendered
 const NavBar = () => {
   const history = useHistory();
   const { user, handleLogout } = useContext(AuthContext);
-
-
   const myQuestions = () =>{ 
     let path = `/MyQuestions`; 
     history.push(path);
   }
-
   const allQuestions = () =>{ 
     let path = `/AllQuestions`; 
     history.push(path);
   }
-
   const myProfile = () =>{ 
     let path = `/MyProfile`; 
     history.push(path);
   }
-
   const leaderboard = () =>{ 
     let path = `/leaderboard`; 
     history.push(path);
   }
-
   const highestWeek = () =>{ 
     let path = `/highestWeek`; 
     history.push(path);
   }
-
   const getRightNav = () => {
     if (user) {
       return (
@@ -58,6 +50,7 @@ const NavBar = () => {
             <Button class="ui button navbarButton">logout!</Button>
             </div>
           </div>
+            {/* <SearchBar/>  */}
         </>
       );
     } else {
@@ -70,22 +63,23 @@ const NavBar = () => {
       );
     }
   };
-
   return (
     <div style={styles.navbar}>
       <div >
       {user && <Button color='vk' onClick={allQuestions} block style={{color: "white",}}>All Questions</Button>}
             <span style={{ marginRight: "30px" }}></span>
-      {user && <Button color='vk' onClick={myQuestions} block style={{color: "white",}}>My Questions</Button>}
-            <span style={{ marginRight: "30px" }}></span>
-      {user && <Button color='vk' onClick={myProfile} block style={{color: "white",}}>My Profile</Button>}
-      </div>
-      <div>{getRightNav()}</div>
-    </div>
+       {user && <Button color='vk' onClick={myQuestions} block style={{color: "white",}}>My Questions</Button>}
+             <span style={{ marginRight: "30px" }}></span>
+       {user && <Button color='vk' onClick={myProfile} block style={{color: "white",}}>My Profile</Button>}
+             <span style={{ marginRight: "30px" }}></span>
+       {user && <Button color='vk' onClick={leaderboard} block style={{color: "white",}}>Leaderboard</Button>}
+             <span style={{ marginRight: "30px" }}></span>
+       {user && <Button color='vk' onClick={highestWeek} block style={{color: "white",}}>Top Weekly Answers</Button>}
+       </div>
+       <div>{getRightNav()}</div>
+     </div>
   );
 };
-
-
 const styles = {
   navbar: {
     
@@ -101,10 +95,6 @@ const styles = {
     margin: "10px",
     textColor: "white",
   },
-
 };
-
-
-
-
 export default NavBar;
+

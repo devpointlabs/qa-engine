@@ -47,6 +47,7 @@ function App() {
             <ProtecedRoute exact path="/MyQuestions" component={MyQuestions} />
             <ProtecedRoute exact path="/questions/new" component={QuestionForm} />
             <ProtecedRoute exact path="/myprofile" component={MyProfile}/>
+
             {/* <ProtecedRoute exact path="/user" component={User} /> */}
           </Switch>
         </FetchUser>

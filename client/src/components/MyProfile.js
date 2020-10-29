@@ -29,6 +29,10 @@ const MyProfile = (props) => {
     <>
     <br/>
     <Container style={{display: "flex", justifyContent: "space-between"}}>
+            <div style={{margin:"10px", width: "500px"}}>
+              <Leaderboard/>
+            </div>
+            
       <Card 
         style={{
           width: "350px",
@@ -55,10 +59,6 @@ const MyProfile = (props) => {
           
           </Card.Content>
         </Card>
-        <div style={{margin:"10px", width: "500px"}}>
-          <Leaderboard/>
-        </div>
-        
       </Container>
       
     </>
