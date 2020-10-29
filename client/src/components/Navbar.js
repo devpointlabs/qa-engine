@@ -56,10 +56,7 @@ const NavBar = () => {
             <span style={{ marginRight: "30px" }}></span>
       {<Button class="ui button"> <Link to="/MyProfile">My Profile</Link></Button>}
             <span style={{ marginRight: "30px" }}></span>
-      {<Button class="ui button"> <Link to="/leaderboard">Leaderboard</Link></Button>}
-            <span style={{ marginRight: "30px" }}></span>
-      {<Button class="ui button"> <Link to="/highestWeek">Top Weekly Answers</Link></Button>}
-            <span style={{ marginRight: "30px" }}></span>
+      {user && <Button color='vk' onClick={myProfile} block style={{color: "white",}}>My Profile</Button>}
       </div>
       <div>{getRightNav()}</div>
     </div>
