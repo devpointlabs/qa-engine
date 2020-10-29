@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Card, CardHeader, CardMeta, Grid } from "semantic-ui-react";
+import { Card, CardHeader, CardMeta, Grid, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { AuthContext } from "../providers/AuthProvider";
@@ -81,7 +81,9 @@ const AllQuestions = (props) => {
                     pathname: `/questionView/${q.id}`,
                     idProps: { question: {...q}}
                     }}>{q.title}</Link></CardHeader></h3>
-                  <CardMeta dangerouslySetInnerHTML={{__html:q.body}}></CardMeta>
+                  <CardMeta 
+                  dangerouslySetInnerHTML={{__html:q.body}}></CardMeta>
+                  <p>{q.first_name}</p>
                   
                   </Card>
               ))}
