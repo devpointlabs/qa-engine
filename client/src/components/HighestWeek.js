@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import { Card } from "semantic-ui-react";
 
 
 const HighestWeek = () => {
@@ -18,10 +19,16 @@ const HighestWeek = () => {
   const renderLeaderboard = () => {
     return upvotes.map((u) => (
       <div>
+      <Card.Group>
+        <Card fluid color='red' header='Option 1'>
+        
+        
         <h4>User Name: {u.first_name} {u.last_name}</h4>
         <h5>Upvotes: {u.upvote}</h5>
         <p dangerouslySetInnerHTML={{__html: u.body}}></p>
         <br />
+        </Card>
+      </Card.Group>
       </div>
       
     ));
@@ -34,7 +41,7 @@ const HighestWeek = () => {
   return (
     <div>
       <h1>Best Answers This Week</h1>
-        {renderLeaderboard()}
+      {renderLeaderboard()}
     </div>
   )
 

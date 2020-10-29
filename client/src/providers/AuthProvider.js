@@ -21,7 +21,6 @@ const AuthProvider = (props) => {
       // this is good if you need some thing from this call below
       // bad if you don't
       // axios calls return a promise so use await
-      let resw = await axios.get("https://reqres.in/api/users?delay=2");
       console.log("now registering");
       let res = await axios.post("/api/auth", user);
       console.log(res);

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import Axios from "axios";
 import { AuthContext } from "../providers/AuthProvider";
-import {Card} from "semantic-ui-react";
+import {Card, Table} from "semantic-ui-react";
+
 
 
 const Leaderboard = () => {
@@ -19,16 +20,14 @@ const Leaderboard = () => {
 
   const renderLeaderboard = () => {
     return upvotes.map((u) => (
-      <Card.Group>
-        <Card fluid color='red' header='Option 1'>
         
-        
-        <h4>User Name: {u.first_name} {u.last_name}</h4>
-        <h5>Upvotes: {u.total_upvotes}</h5>
-        <p dangerouslySetInnerHTML={{__html: u.body}}></p>
-        <br />
-        </Card>
-      </Card.Group>
+      <Table.Row>
+        <Table.Cell>
+        {u.first_name} {u.last_name}
+        </Table.Cell>
+        <Table.Cell>{u.total_upvotes}</Table.Cell>
+      </Table.Row>
+
       
     ));
   };
@@ -40,10 +39,29 @@ const Leaderboard = () => {
   return (
     <div>
         <h1>Leaderboard</h1>
-        {renderLeaderboard()}
+      <Table celled>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell>Name</Table.HeaderCell>
+        <Table.HeaderCell>Score</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
+      {renderLeaderboard()}
+    </Table.Body>
+    <Table.Footer>
+      <Table.Row>
+        <Table.HeaderCell colSpan='3'>
+        </Table.HeaderCell>
+      </Table.Row>
+    </Table.Footer>
+  </Table>
     </div>
   )
 
 }
 
 export default Leaderboard;
+
+
+      
