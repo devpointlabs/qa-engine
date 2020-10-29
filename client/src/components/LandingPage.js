@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import {Button, Container} from "semantic-ui-react";
+import {Grid, Button, Container, Icon} from "semantic-ui-react";
 
 const LandingPage = () => {
   const history = useHistory();
@@ -21,11 +21,52 @@ const LandingPage = () => {
   <div style={styles.landing}>
     <div style={styles.wrapper}>
       <div style={styles.container}>
-        
+      <div style={styles.buttonRow}>
         <img src={`https://res.cloudinary.com/dbbgin0ik/image/upload/v1603873823/Slack_Overflow_1x_wg7u1m.png`}/>
-        <div style={styles.buttonRow}>
-        <Button color='vk' textAlign="center" onClick={login} variant="info" block style={{color: "white",}}>Login</Button>
-        <Button color='vk' textAlign="center" onClick={register} variant="success" block style={{color: "white",}}>Sign Up</Button>
+        </div>
+        <div>
+        <Grid divided='vertically'>
+        <Grid.Row columns={2}>
+      <Grid.Column>
+      <div style={styles.buttonRow}>
+      <Button color='vk' textAlign="center" onClick={login} variant="info" block style={{color: "white",}}>Login</Button>
+      </div>
+      </Grid.Column>
+      <Grid.Column>
+      <div style={styles.buttonRow}>
+      <Button color='vk' textAlign="center" onClick={register} variant="success" block style={{color: "white",}}>Sign Up</Button>
+      </div>
+      </Grid.Column>
+    </Grid.Row>
+
+        <Grid.Row columns={3}>
+      <Grid.Column textAlign="center">
+          <div>
+          <Icon name='check circle outline' color='blue' size='big' />
+          <h2>Ask Questions</h2>
+          <h4>Learn how to ask questions in an open online format</h4>
+          </div>
+      </Grid.Column>
+      <Grid.Column textAlign="center">
+      <div>
+          <Icon name='check circle outline' color='blue' size='big' />
+          <h2>Solve Problems</h2>
+          <h4>Earn points for helping your peers</h4>
+          </div>
+      </Grid.Column>
+      <Grid.Column textAlign="center">
+          <div >
+          <Icon name='check circle outline' color='blue' size='big' />
+          <h2>Get on the Leaderboard</h2>
+          <h4>Earn prizes for having answers with the most likes</h4>
+          </div>
+      </Grid.Column>
+    </Grid.Row>
+  </Grid>
+          
+          
+  
+
         </div>
       </div>
     </div>

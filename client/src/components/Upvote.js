@@ -71,7 +71,7 @@ const Upvote = (props) => {
     return(
       <div>
       <Button onClick={handleClick} as='div' labelPosition='right'>
-        <Button color='red'>
+        <Button size='mini' color='red'>
           <Icon name='heart' />
           Like
         </Button>
@@ -86,7 +86,7 @@ const Upvote = (props) => {
 
   return (
     <div>
-      <LikeButton increment={1} onClick={incrementCount}>{count}</LikeButton>
+      <LikeButton size='mini' increment={1} onClick={incrementCount}>{count}</LikeButton>
       
     </div>
   )

@@ -20,7 +20,7 @@ const HighestWeek = () => {
     return upvotes.map((u) => (
       <div>
       <Card.Group>
-        <Card header='Option 1'>
+        <Card fluid>
         
         
         <h4>User Name: {u.first_name} {u.last_name}</h4>
