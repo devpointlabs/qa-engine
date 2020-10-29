@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import {Button,Image} from "semantic-ui-react";
+import SearchBar from './SearchBar';
 import styled from "styled-components";
 // For Basic setup only please change
 
@@ -51,6 +52,8 @@ const NavBar = () => {
       {<Button class="ui button"> <Link to="/leaderboard">Leaderboard</Link></Button>}
             <span style={{ marginRight: "30px" }}></span>
       {<Button class="ui button"> <Link to="/highestWeek">Top Weekly Answers</Link></Button>}
+            <span style={{ marginRight: "30px" }}></span>
+      <SearchBar/>
       </div>
       <div>{getRightNav()}</div>
     </div>
