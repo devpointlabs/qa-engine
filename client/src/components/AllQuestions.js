@@ -36,39 +36,65 @@ const AllQuestions = (props) => {
     }
 
     }, []);
+
+    const SearchView = () => {
+      return (
+        <>
+          {questions.map((q) => (
+                  
+                  <Card fluid key={q.id}>
+
+                    <h3><CardHeader><Link to={{
+                    pathname: `/questionView/${q.id}`,
+                    idProps: { question: {...q}}
+                    }}>{q.title}</Link></CardHeader></h3>
+                  <CardMeta dangerouslySetInnerHTML={{__html:q.body}}></CardMeta>
+                  
+                  </Card>
+              ))}   
+        </>
+      )
+    }
+
+    const RegularView = () => {
+      return (
+        <Grid>
+        <Grid.Column width={5}>
+          <Grid.Row>
+          <Leaderboard />
+          <br />
+          <br />
+          </Grid.Row>
+          <Grid.Row>
+          <HighestWeek />
+          </Grid.Row>
+        </Grid.Column>
+        <Grid.Column width={11}>
+          <h1>All Questions</h1>
+          <br />
+          <SearchBar />
+              {questions.map((q) => (
+                
+                  <Card fluid key={q.id}>
+
+                    <h3><CardHeader><Link to={{
+                    pathname: `/questionView/${q.id}`,
+                    idProps: { question: {...q}}
+                    }}>{q.title}</Link></CardHeader></h3>
+                  <CardMeta dangerouslySetInnerHTML={{__html:q.body}}></CardMeta>
+                  
+                  </Card>
+              ))}
+        </Grid.Column>
+      </Grid>
+
+      )
+    }
   
 
   return (
     <div>
-      <Grid>
-          <Grid.Column width={5}>
-            <Grid.Row>
-            <Leaderboard />
-            <br />
-            <br />
-            </Grid.Row>
-            <Grid.Row>
-            <HighestWeek />
-            </Grid.Row>
-          </Grid.Column>
-          <Grid.Column width={11}>
-            <h1>All Questions</h1>
-            <br />
-            <SearchBar />
-                {questions.map((q) => (
-                  
-                    <Card fluid key={q.id}>
-
-                      <h3><CardHeader><Link to={{
-                      pathname: `/questionView/${q.id}`,
-                      idProps: { question: {...q}}
-                      }}>{q.title}</Link></CardHeader></h3>
-                    <CardMeta dangerouslySetInnerHTML={{__html:q.body}}></CardMeta>
-                    
-                    </Card>
-                ))}
-          </Grid.Column>
-        </Grid>
+      {props.searchResults ? SearchView() : RegularView()}
     </div>
   )
 };
