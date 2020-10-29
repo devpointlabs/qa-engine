@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import {Button,Image} from "semantic-ui-react";
+import {Button,Image, Container} from "semantic-ui-react";
 import SearchBar from './SearchBar';
 import styled from "styled-components";
 // For Basic setup only please change
@@ -81,6 +81,7 @@ const styles = {
     boxShadow: "0 2px 4px 0 rgba(0,0,0,0.5)",
     margin: "10px",
   },
+
 
   Button: {
     ButtonColor: "black",
