@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import Axios from "axios";
 import AnswerForm from "./AnswerForm";
-import { Card, CardHeader, Button } from "semantic-ui-react";
+import { Card, CardHeader, Button, Grid, Table, Container } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 import Answer from "./Answer";
 import Comments from "./Comments";
 import Upvote from "./Upvote";
 import AnswerUpvote from "./AnswerUpvote";
+import Leaderboard from "./Leaderboard";
+import HighestWeek from "./HighestWeek";
 
 
 
@@ -99,28 +101,44 @@ const Question = (props) => {
 
     
     return (
-      <div key={question.id}>
-        <h1>Question:</h1>
-        <h2>{question.title}</h2><h4>  user: {question.first_name}</h4>
-        <br />
-        <p dangerouslySetInnerHTML={{__html: question.body}}></p>
-        <br />
-        <Upvote mString="question" mId={question.id} upvote={question.upvote} question={question}></Upvote>
-        <br />
         
-        {answers.map((a) => (
-        
-          <div><Answer {...a} aID={a.id} user={user} deleteAnswer={deleteAnswer}/></div>
-          
-            // {show && <Comments questionID={question.id} answerID={a.id} />}
-          //<Button onClick={() => setShow(!show)}>{show ? "Hide Comments" : "Comments"}</Button>
-       
-        ))}
-        <h2></h2>
-        <AnswerForm addAnswer={addAnswer}  questionID={question.id} user={user}/>
-        
-        
-      </div>
+      <Grid>
+          <Grid.Column width={5}>
+            <Grid.Row>
+            <Leaderboard />
+            <br />
+            <br />
+            </Grid.Row>
+            <Grid.Row>
+            <HighestWeek />
+            </Grid.Row>
+          </Grid.Column>
+          <Grid.Column width={11}>
+            <Card fluid>
+              <div key={question.id}>
+                <CardHeader>
+                <h1>Question:</h1>
+                <h2>{question.title}</h2><h3>  user: {question.first_name}</h3>
+                <br />
+                <p dangerouslySetInnerHTML={{__html: question.body}}></p>
+                </CardHeader>
+                <br />
+                <Upvote mString="question" mId={question.id} upvote={question.upvote} question={question}></Upvote>
+                <br />
+                
+                {answers.map((a) => (
+                <Card fluid>
+                  <div><Answer {...a} aID={a.id} user={user} deleteAnswer={deleteAnswer}/></div>
+                </Card>
+                ))}
+                <h2></h2>
+                <AnswerForm addAnswer={addAnswer}  questionID={question.id} user={user}/>
+              </div>
+            </Card>
+            
+          </Grid.Column>
+        </Grid>
+
     )
 }
 

@@ -22,6 +22,7 @@ import MyProfile from "./components/MyProfile";
 // import Login from "./components/Login";
 // import User from "./components/User";
 import "./App.css";
+import "./index.css"
 import Leaderboard from "./components/Leaderboard";
 import HighestWeek from "./components/HighestWeek";
 // anything in fetchuser will be hidden while that checkuser function is running
