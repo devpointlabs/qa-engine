@@ -70,7 +70,6 @@ const Upvote = (props) => {
     
     return(
       <div>
-      <Image src='/images/image.png' size='medium' circular />
       <Button onClick={handleClick} as='div' labelPosition='right'>
         <Button size='mini' color='red'>
           <Icon name='heart' />
