@@ -13,16 +13,48 @@ const NavBar = () => {
   const history = useHistory();
   const { user, handleLogout } = useContext(AuthContext);
 
+
+  const myQuestions = () =>{ 
+    let path = `/MyQuestions`; 
+    history.push(path);
+  }
+
+  const allQuestions = () =>{ 
+    let path = `/AllQuestions`; 
+    history.push(path);
+  }
+
+  const myProfile = () =>{ 
+    let path = `/MyProfile`; 
+    history.push(path);
+  }
+
+  const leaderboard = () =>{ 
+    let path = `/leaderboard`; 
+    history.push(path);
+  }
+
+  const highestWeek = () =>{ 
+    let path = `/highestWeek`; 
+    history.push(path);
+  }
+
   const getRightNav = () => {
     if (user) {
       return (
         <>
           <div>
-            <div>
             <a href="/myprofile">
             <Image avatar src={user.image}/>
             </a>
-            <Button onClick={() => handleLogout(history)} class="ui button navbarButton">Logout!</Button>
+            <h2>
+            {user.first_name}
+            </h2>
+            <div
+            onClick={() => handleLogout(history)}
+            style={{ color: "red" }}
+            >
+            <Button class="ui button navbarButton">logout!</Button>
             </div>
           </div>
         </>
@@ -41,19 +73,15 @@ const NavBar = () => {
   return (
     <div style={styles.navbar}>
       <div >
-      <Button color="" ><Link to="/AllQuestions">All Questions</Link></Button>
-        {/* <span style={{ marginRight: "10px" }}></span>
-        {user && <Link to="/thingsDemo">Things</Link>} */}
+      {user && <Button color='vk' onClick={allQuestions} block style={{color: "white",}}>All Questions</Button>}
             <span style={{ marginRight: "30px" }}></span>
-      {<Button class="ui button"> <Link to="/MyQuestions">My Questions</Link></Button>}
+      {user && <Button color='vk' onClick={myQuestions} block style={{color: "white",}}>My Questions</Button>}
             <span style={{ marginRight: "30px" }}></span>
-      {<Button class="ui button"> <Link to="/MyProfile">My Profile</Link></Button>}
+      {user && <Button color='vk' onClick={myProfile} block style={{color: "white",}}>My Profile</Button>}
             <span style={{ marginRight: "30px" }}></span>
-      {<Button class="ui button"> <Link to="/leaderboard">Leaderboard</Link></Button>}
+      {user && <Button color='vk' onClick={leaderboard} block style={{color: "white",}}>Leaderboard</Button>}
             <span style={{ marginRight: "30px" }}></span>
-      {<Button class="ui button"> <Link to="/highestWeek">Top Weekly Answers</Link></Button>}
-            <span style={{ marginRight: "30px" }}></span>
-      <SearchBar/>
+      {user && <Button color='vk' onClick={highestWeek} block style={{color: "white",}}>Top Weekly Answers</Button>}
       </div>
       <div>{getRightNav()}</div>
     </div>
