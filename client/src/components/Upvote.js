@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
-import { Button, Icon, Label } from 'semantic-ui-react'
+import { Button, Icon, Label, Image } from 'semantic-ui-react'
 
 
 
@@ -70,6 +70,7 @@ const Upvote = (props) => {
     
     return(
       <div>
+      <Image src='/images/image.png' size='medium' circular />
       <Button onClick={handleClick} as='div' labelPosition='right'>
         <Button size='mini' color='red'>
           <Icon name='heart' />
