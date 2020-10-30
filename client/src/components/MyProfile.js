@@ -29,7 +29,7 @@ const MyProfile = (props) => {
     <>
     <br/>
     <Container style={{display: "flex", justifyContent: "space-between"}}>
-            <div style={{margin:"10px", width: "500px"}}>
+            <div style={{margin:"10px", width: "70%"}}>
               <Leaderboard/>
             </div>
             

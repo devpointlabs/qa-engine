@@ -77,7 +77,7 @@ class SearchBar extends React.Component {
                 name="search"
               />
               <Button
-                onClick={(e) => this.searchQuestions(e, this.state.search)}
+              color='vk' onClick={(e) => this.searchQuestions(e, this.state.search)}
               >
                 Search
               </Button>
@@ -89,7 +89,7 @@ class SearchBar extends React.Component {
           
           {this.state.searched ? (
             this.state.questions.length > 0 ? (
-              <AllQuestions searchResults={this.state.questions} />
+              <AllQuestions searchResults={this.state.questions} /> 
             ) : (
               "No keywords found "
             )

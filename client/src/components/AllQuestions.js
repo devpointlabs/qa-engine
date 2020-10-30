@@ -74,18 +74,19 @@ const AllQuestions = (props) => {
           <br />
           <SearchBar />
               {questions.map((q) => (
-                
-                  <Card fluid key={q.id}>
-
-                    <h3><CardHeader><Link to={{
+                  <Link to={{
                     pathname: `/questionView/${q.id}`,
                     idProps: { question: {...q}}
-                    }}>{q.title}</Link></CardHeader></h3>
-                  <CardMeta 
-                  dangerouslySetInnerHTML={{__html:q.body}}></CardMeta>
-                  <p>{q.first_name}</p>
-                  
-                  </Card>
+                    }}>
+                    <Card fluid key={q.id}>
+
+                      <h3><CardHeader>{q.title}</CardHeader></h3>
+                    <CardMeta 
+                    dangerouslySetInnerHTML={{__html:q.body}}></CardMeta>
+                    <p>{q.first_name}</p>
+                    
+                    </Card>
+                  </Link>
               ))}
         </Grid.Column>
       </Grid>

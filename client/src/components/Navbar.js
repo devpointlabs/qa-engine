@@ -47,7 +47,7 @@ const NavBar = () => {
             onClick={() => handleLogout(history)}
             style={{ color: "red" }}
             >
-            <Button class="ui button navbarButton">logout!</Button>
+            <Button size="mini" color='vk' class="ui button navbarButton">logout!</Button>
             </div>
           </div>
             {/* <SearchBar/>  */}

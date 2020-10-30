@@ -89,32 +89,41 @@ const MyQuestions = (props) => {
               </Grid.Row>
         </Grid.Column>
         <Grid.Column width={11}>
-        <h1>Submitted Questions:</h1>
+        <h1>My Questions:</h1>
         <br/>
-        <Button>
-          <Link to={{pathname: '/AskQuestion'}}>New Question</Link>
-        </Button>
+        <Link to={{pathname: '/AskQuestion'}}>
+          <Button color='vk'>
+            + Question
+          </Button>
+        </Link>
         <br/>
         <br/>
           {questions.map((q) => (
-            <Link to={{
-              pathname: `/questionView/${q.id}`,
-              idProps: { question: {...q}}
-              }}>
+            
               <Card fluid key={q.id} >
-                <Card.Header>
-                  <h1>Question</h1>
-                  <h4>User: {user.first_name}</h4>
-                  <h2>{q.title}</h2>
-                  <p dangerouslySetInnerHTML={{__html: q.body}}></p>
-                </Card.Header>
+                <Link to={{
+                  pathname: `/questionView/${q.id}`,
+                  idProps: { question: {...q}}
+                  }}>
+                  <Card.Header>
+                  
+                    <h1>Question</h1>
+                    <h4>User: {user.first_name}</h4>
+                    <h2>{q.title}</h2>
+                    <p dangerouslySetInnerHTML={{__html: q.body}}></p>
+                    
+                  </Card.Header>
+                </Link>
                 <br/>
-                <div style={{display:"flex"}}>
+                <div style={{display:"flex", justifyContent:"space-between"}}>
                 <Upvote mString="question" mId={q.id} upvote={q.upvote} question={q}></Upvote>
-                <Button variant="danger" onClick={() => deleteQuestion(q.id)}>Delete Question</Button>
+                <Button size="mini" color='vk' variant="danger" onClick={() => deleteQuestion(q.id)}>
+                  <Icon name="trash alternate outline"/>
+                    Delete
+                </Button>
                 </div>
               </Card>
-            </Link>
+            
           ))}
           
         </Grid.Column>
