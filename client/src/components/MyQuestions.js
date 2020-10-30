@@ -107,10 +107,8 @@ const MyQuestions = (props) => {
                   }}>
                   <Card.Header>
                   
-                    <h1>Question</h1>
-                    <h4>User: {user.first_name}</h4>
-                    <h2>{q.title}</h2>
-                    <p dangerouslySetInnerHTML={{__html: q.body}}></p>
+                    <h1>{q.title}</h1>
+                    <h4 dangerouslySetInnerHTML={{__html: q.body}}></h4>
                     
                   </Card.Header>
                 </Link>
