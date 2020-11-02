@@ -6,6 +6,7 @@ def update
   user.first_name = params[:first_name] ? params[:first_name] : user.first_name
   user.last_name = params[:last_name] ? params[:last_name] : user.last_name
   user.email = params[:email] ? params[:email] : user.email
+  user.cohort = params[:cohort] ? params[:cohort] : user.cohort
   file = params[:file]
 
   if file
